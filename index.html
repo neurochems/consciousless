@@ -1,0 +1,618 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
+		<title>Brendan Lehman | consciousless.net</title>
+		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" charset="utf-8" href="css/webfonts/webfonts.css"/>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		
+		<script src="js/jquery.nicescroll.js"></script>
+		
+		<!--SEO BEGINS-->
+		<meta name="geo.placename" content="Akashic Record, Magnetosphere, Earth" />
+		<meta name="geo.region" content="CA-ON" />
+		<meta name="robots" content="index,follow" />
+		<meta name="revisit-after" content="7 Days" />
+		<meta http-equiv="Cache-Control" content="no-cache" />
+		<meta name="keywords" content="Brendan Lehman, Sudbury, neuroscience, video games, consciousness, entanglement, quantum, open source, Neuroscience Research Group, Cingulate Research & Development, Brain Tape, River & Sky, Anywhere Creator Space, Digital Forest Collective">
+		<meta name="description" http-equiv="description" content="Neuroscience, video games, music, art." />
+		<meta name="author" content="Brendan Lehman" />
+		<!--SEO ENDS-->
+
+		<!-- JQUERY FOR NAVBAR SELECTION	 -->
+		<script>
+		$(document).ready(function (){
+				    $("#name").click(function (){ $('html, body').animate({ scrollTop: $("#main").offset().top }, 600); });
+				    $("#left").click(function (){ $('html, body').animate({ scrollTop: $("#science").offset().top }, 600); });
+				    $("#right").click(function (){ $('html, body').animate({ scrollTop: $("#games").offset().top }, 1200); });
+				    $("#sub").click(function (){ $('html, body').animate({ scrollTop: $("#main").offset().top }, 600); });
+			});
+		</script>
+		
+		<!-- JQUERY FOR MOUSE OVER UI ELEMENTS -->
+		<script>
+		$(document).ready(function(){
+		
+			
+			$("#left_button").on('mouseover touchstart', function(){
+				//toggle list
+				$("#left_lower").stop().slideToggle(100); 				
+ 				
+ 				//background highlight
+				if($("#main").hasClass('default_bg')) { $("#main").addClass('left_bg').removeClass('default_bg');}
+
+			});
+			$("#right_button").on('mouseover touchstart', function(){
+				//toggle list
+				$("#right_lower").stop().slideToggle(100);
+				
+				//background highlight
+				if($("#main").hasClass('default_bg')) { $("#main").addClass('right_bg').removeClass('default_bg'); }
+				
+			});
+			$("#left_button").mouseout(function(){
+				//toggle list
+				$("#left_lower").stop().slideToggle(120);
+				
+				//background highlight
+				if($("#main").hasClass('left_bg') && !$("#left_button").data("clicked")) { 
+					 $("#main").addClass('default_bg').removeClass('left_bg'); }
+		        
+			});
+			$("#right_button").mouseout(function(){
+				//toggle list
+				$("#right_lower").stop().slideToggle(120);
+				
+				//background highlight
+				if($("#main").hasClass('right_bg') && !$("#right_button").data("clicked")) { 
+					 $("#main").addClass('default_bg').removeClass('right_bg'); }
+				
+			});
+			$("#left_button").on('click', function(){
+				//'clicked' flag
+				$(this).data('clicked', true)
+				//slide up text
+				/*
+$(".title_text").stop().slideToggle(100);
+				$(".button_column").stop().slideToggle(100);
+*/
+				// ANIMATING BACKGROUND POSITION
+				$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});
+			});
+			$("#right_button").on('click', function(){
+				//'clicked' flag
+				$(this).data('clicked', true)
+				//slide up text
+				$(".title_text").stop().slideToggle(100);
+				$(".button_column").stop().slideToggle(100);
+				// ANIMATING BACKGROUND POSITION
+				$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.temporary_x) + "px) " + Math.round(this.temporary_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});
+			});
+		});
+		</script>
+
+		<!-- JQUERY STATE MACHINE -->
+		<script>
+		var States = {
+    
+		    main: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $(".left_text").hide();
+		            $(".left_lines").hide();
+		            $(".left_dots").hide();
+		            $(".splash_text").show();
+		            $(".splash_buttons").show();		        
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $(".splash_text").hide();
+		            $(".splash_buttons").hide();
+		        },
+		        science: function(ssm) {
+		            ssm.change_state("science");
+		        },
+		        philosophy: function(ssm) {
+		            ssm.change_state("philosophy");
+		        },
+		        governance: function(ssm) {
+		            ssm.change_state("governance");
+		        },
+		        politics: function(ssm) {
+		            ssm.change_state("politics");
+		        },
+		    },
+		    
+		    science: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#left_dots").stop().slideToggle(100);
+		            $(".left_text").stop().slideToggle(100);
+		            $("#science_header").stop().slideToggle(100);
+		            $("#science_text").stop().slideToggle(100);
+		            $("#left_lines").stop().slideToggle(100);
+		            $("#i0").stop().slideToggle(100);
+		            $("#i1").stop().slideToggle(100);
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $(".science_header").hide();
+		            $(".science_text").hide();
+		            $("#i1").hide();
+		        },
+		        main: function(ssm) {
+		            ssm.change_state("main");
+		        },
+		        philosophy_dot: function(ssm) {
+		            ssm.change_state("philosophy");
+		        },
+		        governance: function(ssm) {
+		            ssm.change_state("governance");
+		        },
+		        politics: function(ssm) {
+		            ssm.change_state("politics");
+		        },
+		    },
+		    
+		    philosophy: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#philosophy_header").stop().slideToggle(100);
+		            $("#philosophy_text").stop().slideToggle(100);
+		            $("#i2").stop().slideToggle(100);
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $(".philosophy_header").hide();
+		            $(".philosophy_text").hide();
+		            $("#i2").hide();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("red");
+		        },
+		    },
+		    
+		    governance: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#threat").html("elevated");
+		            $("#threat").css("color", "goldenrod").css("font-weight", "normal");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("red");
+		        },
+		    },
+		    
+		    politics: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#threat").html("elevated");
+		            $("#threat").css("color", "goldenrod").css("font-weight", "normal");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("red");
+		        },
+		    },
+		    
+		    games: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#raise").hide();
+		            $("#threat").html("severe");
+		            $("#threat").css("color", "red").css("font-weight", "bold");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("yellow");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		    },
+		    
+		     code: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#raise").hide();
+		            $("#threat").html("severe");
+		            $("#threat").css("color", "red").css("font-weight", "bold");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("yellow");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		    },
+		    
+		     music: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#raise").hide();
+		            $("#threat").html("severe");
+		            $("#threat").css("color", "red").css("font-weight", "bold");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("yellow");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		    },
+		    
+		     art: {
+		        enter: function(ssm) {
+		            States.enter_state(ssm);
+		            $("#raise").hide();
+		            $("#threat").html("severe");
+		            $("#threat").css("color", "red").css("font-weight", "bold");
+		        },
+		        exit: function(ssm) {
+		            States.exit_state(ssm);
+		            $("#raise").show();
+		        },
+		        lower: function(ssm) {
+		            ssm.change_state("yellow");
+		        },
+		        raise: function(ssm) {
+		            ssm.change_state("green");
+		        },
+		    },
+		    		    
+		    // default callbacks
+		    enter_state: function(ssm) {
+		        console.log('entering state: ' + ssm.state);
+		    },
+		    exit_state: function(ssm) {
+		        console.log('exiting state: ' + ssm.state);
+		    },
+		    pass: function() {},
+		};
+		
+		function SimpleStateMachine() {
+		    var self = {};
+		    self.state = null;
+		    
+		    // init
+		    self.init = function() {
+		        self.change_state("main");
+		        $("#left_button").click(function(e) {
+		            self.update('science');
+		        });
+		        $(".science_dot").click(function(e) {
+		            self.update('science');
+		        });
+		        $(".philosophy_dot").click(function(e) {
+		            self.update('philosophy');
+		        });
+		        $(".governance_dot").click(function(e) {
+		            self.update('governance');
+		        });
+		        $(".politics_dot").click(function(e) {
+		            self.update('politics');
+		        });
+		        $("#right_button").click(function(e) {
+		            self.update('games');
+		        });
+		        
+				$(".left_text").hide();
+		        $("#science_header").hide();
+		        $("#science_text").hide();
+		        $("#philosophy_header").hide();
+		        $("#philosophy_text").hide();
+		        $("#governance_header").hide();
+		        $("#governance_text").hide();
+		        $("#politics_header").hide();
+		        $("#politics_text").hide();
+		        $("#left_dots").hide();
+		        $("#left_lines").hide();
+		        $("#i0").hide();
+		        $("#i1").hide();
+		        $("#i2").hide();
+		        $("#i3").hide();
+		        $("#i4").hide();
+
+		    };
+		    
+		    self.update = function(action) {
+		        if ( States[self.state][action] ) {
+		            States[self.state][action](self);
+		        }
+		        else {
+		            console.log("Invalid action", action, "requested for state",
+		                self.state);
+		        }
+		    };
+		    
+		    self.change_state = function(new_state) {
+		        var old_state = self.state;
+		        
+		        // exit old state
+		        if ( States[old_state] && States[old_state]['exit'] ) {
+		            States[old_state]['exit'](self);
+		        }
+		        else {
+		            States.exit_state(self);
+		        }
+		        
+		        // enter new state
+		        self.state = new_state;
+		        if ( States[new_state]['enter'] ) {
+		            States[new_state]['enter'](self);
+		        }
+		        else {
+		            States.enter_state(self);
+		        }
+		        
+		        console.log('change state:', old_state, ' to ', new_state);
+		        return self;
+		    };
+		    
+		    return self;
+		}
+		
+		$(document).ready(function() {
+		    var ssm = new SimpleStateMachine();
+		    ssm.init();
+		});
+		
+		</script>
+		
+</head>
+	
+<body>
+	
+<!-- NAV BAR START 
+	TODO:
+	- UPDATE HREFS
+-->
+<header id="header">
+	<div class="header_content">
+		<div id="name">
+			<h1><a href="#main" title="Brendan Lehman">Brendan</br>Lehman</a></h1>
+		</div>
+		<nav id="nav">
+			<ul>
+				<li><a href="#main" title="left hemisphere">left hemisphere</a></li>
+				<li><a href="#main" title="right hemisphere">right hemisphere</a></li>
+				<li><a href="#main" title="subcortex">subcortex</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<!-- NAV BAR END -->
+
+<!---------- CONTENT START ---------->
+
+<!-- SPLASH -->
+	
+<div id="main" class="default_bg">
+	<div class="content_container">
+        <div class="splash_text">
+	    	<p class="title_text">Welcome to consciousless.net, the internet hub of Brendan Lehman.</p>
+	    	<p class="title_text">Please select a region to explore further.</p>
+	  	</div>
+	  	<div class="splash_buttons">
+			<div class="button_column">
+				<!-- <a onclick="event.preventDefault()"> -->
+					<div id="left_button">
+						left hemisphere
+						<div id="left_lower">
+							<p class="button_text">science</p>
+							<p class="button_text">philosophy</p>
+							<p class="button_text">governance</p>
+							<p class="button_text">politics</p>
+						</div>
+					</div>
+				<!-- </a> -->
+			</div>
+			<div class="button_column">
+				<!-- <a onclick="event.preventDefault()"> -->
+					<div id="right_button">
+						right hemisphere
+						<div id="right_lower">
+							<p class="button_text">games</p>
+							<p class="button_text">music</p>
+							<p class="button_text">code</p>
+							<p class="button_text">art</p>
+						</div>
+					</div>
+				<!-- </a> -->
+			</div>
+	  	</div>
+	  	
+<!-- LEFT -->
+	  	
+	  	<div class="left_text">
+			<h3 id="science_header">SCIENCE</h3>
+			<p id="science_text">Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text Science text </p>
+			<!-- connection links to other slides go here -->
+			<h3 id="philosophy_header">PHILOSOPHY</h3>
+			<p id="philosophy_text">Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text Philosophy text </p>
+			<!-- connection links to other slides go here -->
+			<h3 id="governance_header">GOVERNANCE</h3>
+			<p id="governance_text">Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text Governance text </p>
+			<!-- connection links to other slides go here -->
+			<h3 id="politics_header">POLITICS</h3>
+			<p id="politics_text">Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text Politics text </p>
+			<!-- connection links to other slides go here -->
+		</div>
+	  	
+	  	<div id="left_dots">
+		  	<div id="red_dot" class="science_dot"></div>
+			<div id="red_dot" class="philosophy_dot"></div>
+			<div id="red_dot" class="governance_dot"></div>
+			<div id="red_dot" class="politics_dot"></div>
+	  	</div>
+	  	
+	  	<div id="left_lines">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="1000"
+				height="1000"
+				viewBox="0 0 1000 1000"
+				id="Layer_1"
+				version="1.1"
+				xml:space="preserve">
+				<path id="i0" transform="translate(20,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
+					d="m 0.11661799,1052.2467 29.51293101,-39.7204 30.370455,0"/>
+				<path id="i1" transform="translate(251,-993)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 499.66172,1051.8976 -81.18875,-58.25788 -418.27635535,0 2.05540315,-0.73744"/>
+				<path id="i2" transform="translate(230,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 425.01682,1049.8415 -117.1875,-117.1874 0,-137.5 -286.71875,0 0,0"/>
+				<path id="i3" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 507.70267,1116.0017 0,-94.0452 -93.3381,-93.33806 0,-133.64318 -391.737153,0"/>
+				<path id="i4" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.99997 -286,0"/>
+			</svg>
+		</div>
+		
+<!-- RIGHT
+		
+		<div class="right_text">
+			<h3 id="games_header">GAMES</h3>
+			<p id="games_text">Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text </p>
+			<!-- connection links to other slides go here
+			<h3 id="music_header">MUSIC</h3>
+			<p id="music_text">Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text </p>
+			<!-- connection links to other slides go here
+			<h3 id="code_header">CODE</h3>
+			<p id="code_text">Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text </p>
+			<!-- connection links to other slides go here
+			<h3 id="art_header">ART/h3>
+			<p id="art_text">Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text </p>
+			<!-- connection links to other slides go here
+		</div>
+	  	
+	  	<div id="right_dots">
+		  	<div id="red_dot" class="games_dot"></div>
+			<div id="red_dot" class="music_dot"></div>
+			<div id="red_dot" class="code_dot"></div>
+			<div id="red_dot" class="art_dot"></div>
+	  	</div>
+	  	
+	  	<div id="right_lines">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="1000"
+				height="1000"
+				viewBox="0 0 1000 1000"
+				id="Layer_1"
+				version="1.1"
+				xml:space="preserve">
+				<path id="i0" transform="translate(20,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
+					d="m 0.11661799,1052.2467 29.51293101,-39.7204 30.370455,0"/>
+				<path id="i1" transform="translate(251,-993)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 499.66172,1051.8976 -81.18875,-58.25788 -418.27635535,0 2.05540315,-0.73744"/>
+				<path id="i2" transform="translate(230,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 425.01682,1049.8415 -117.1875,-117.1874 0,-137.5 -286.71875,0 0,0"/>
+				<path id="i3" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 507.70267,1116.0017 0,-94.0452 -93.3381,-93.33806 0,-133.64318 -391.737153,0"/>
+				<path id="i4" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.99997 -286,0"/>
+			</svg>
+		</div>
+
+		
+		<!-- JQUERY FOR SVG ANIMATIONS -->
+		<script>
+			var current_frame = 0;
+			var total_frames = 25;
+			var path = new Array();
+			var length = new Array();
+			for(var i=0; i<4;i++){
+				path[i] = document.getElementById('i'+i);
+				l = path[i].getTotalLength();
+				length[i] = l;
+				path[i].style.strokeDasharray = l + ' ' + l; 
+				path[i].style.strokeDashoffset = l;
+			}
+			var handle = 0;
+							 
+			var draw = function() {
+			   var progress = current_frame/total_frames;
+			   if (progress > 1) {
+			     window.cancelAnimationFrame(handle);
+			   } else {
+			     current_frame++;
+			     for(var j=0; j<path.length;j++){
+				     path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+			     }
+			     handle = window.requestAnimationFrame(draw);
+			   }
+			};
+			draw();
+		</script>
+	</div> 
+</div> 
+
+-->
+
+<!-- CONTENT END -->
+
+<!-- FOOTER START -->
+<footer id="footer">
+	<div class="footer_content">
+		<div id="title">
+			<h2>Aether</h2>
+		</div>
+		<nav id="nav">
+			<ul>
+				<li><a href="https://www.twitter.com/neurochems">twitter</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="brendan@consciousless.net">email</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="digital forest collective">itch.io</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="brendan lehman">researchgate</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="brain tape">bandcamp</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="neurochems">github</a></li>
+				<li><a href="http://www.twitter.com/neurochems" title="clarksfortress">instagram</a></li>
+			</ul>
+		</nav>
+	</div>
+</footer>
+<!-- FOOTER END -->
+
+
+		
+</body>
+</html>
