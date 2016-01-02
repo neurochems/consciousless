@@ -139,7 +139,7 @@ a {
 	height: 100%;
 	text-align: center;
 	
-	min-height: 620px;
+	min-height: 750px;
  			
 /* 	background: url("../assets/brain_bg.png") no-repeat; */
 /*   	background-position: calc(50% + 0px) 50%; */
@@ -232,7 +232,7 @@ a {
 
 #left {	
 	background-position: calc(50% + 350px) 50%; 
-	min-height: 750px;
+	min-height: 650px;
 }
 
 /* text & image containers */
@@ -249,7 +249,7 @@ a {
 /*  	border: 1px solid #FF00ff; */
 }
 
-.left_text {
+#left_text {
 	display: block;
 	width: 500px;
 	height: auto;
@@ -270,7 +270,7 @@ a {
 /* 	border: 1px solid #fff000; */
 }
 
-#red_dot { 
+.red_dot { 
 	border-radius: 50%;
 	width: 25px;
 	height: 25px;
@@ -279,22 +279,22 @@ a {
 	position: absolute;
 }
 
-.science_dot {
+#science_dot {
 	left: calc(50% + 190px);
 	top: calc(50% - 90px);
 }
 
-.philosophy_dot {
+#philosophy_dot {
 	left: calc(50% + 273px);
 	top: calc(50% - 25px);
 }
 
-.governance_dot {
+#governance_dot {
 	left: calc(50% + 300px);
 	top: calc(50% - 275px);
 }
 
-.politics_dot {
+#politics_dot {
 	left: calc(50% + 285px);
 	top: calc(50% + 90px);
 }
@@ -302,7 +302,7 @@ a {
 /* text box
 -----------------*/
 
-.left_text {
+#left_text {
 	margin: 0px auto;
 	max-width: 500px;
 	padding-top: 0px;
