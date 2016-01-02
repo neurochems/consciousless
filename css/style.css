@@ -1,0 +1,366 @@
+/*
+Project: consciousless.net
+Description: the personal site of brendan lehman
+Code + Design: Brendan Lehman
+*/
+
+
+/*= GENERAL STYLING
+--------------------------------------------------------*/
+
+* {padding: 0px; margin: 0px;}
+
+html, body {
+    height: 100%;
+/* 	background-attachment: fixed; */
+	background-color: #000;
+	overflow: hidden;
+}
+
+body {
+    font-family: "Letter Gothic Std", sans-serif;
+	color: #fff;
+}
+
+h1 a {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: justify;
+	font-size: 25px;
+	letter-spacing: 8px;
+}
+
+h2 {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 4px;
+}
+
+h3 {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bolder;
+	font-size: 26px;
+	letter-spacing: 4px;
+	padding: 10px 10px 20px 10px;
+	
+
+}
+
+ul { list-style-type: none; }
+
+p {
+	font-family: "Letter Gothic Std", serif;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 20px;
+	
+	height: 375px;
+	overflow: auto;
+	
+	border: 1px solid #fff;
+}
+
+a {
+	font-family: "Letter Gothic Std", serif;
+	color: #fff;
+	text-transform: lowercase;
+ 	letter-spacing: 2px;
+ 	text-decoration: none;
+}
+
+
+/*= NAVIGATION
+--------------------------------------------------------*/
+
+#header {
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+	margin-top: 0px;
+	border-bottom: 1px solid #fff;
+	position: fixed;
+}
+
+.header_content {
+	text-align: center;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#name, #nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	
+	margin: 10px auto;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#name {
+	padding-right: 20px;
+	border-right: 1px solid #fff;
+	text-align: right; 
+}
+
+#nav { 
+	width: 600px;
+	float: none;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+#nav ul {
+	list-style: none;
+	display: block;
+	margin: 0px auto 0px 0px;
+	padding: 0px auto 0px 0px;
+}
+
+#nav li {
+	display: inline;
+	margin: 0px 35px 0px 5px;
+	float: left;
+	padding-left: 1px;
+}
+
+/*= MAIN
+--------------------------------------------------------*/
+
+#main, #left {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	
+	min-height: 620px;
+ 			
+/* 	background: url("../assets/brain_bg.png") no-repeat; */
+/*   	background-position: calc(50% + 0px) 50%; */
+ 			
+	padding: 50px 0px 0px 0px;
+/*  	border: 1px solid #0000ff; */
+}
+
+.default_bg {
+ 	background: url("../assets/brain_bg.png") no-repeat calc(50% + 0px) 50%;
+}
+.left_bg {
+	background: url("../assets/brain_bg_left.png") no-repeat calc(50% + 0px) 50%;
+}
+.right_bg {
+	background: url("../assets/brain_bg_right.png") no-repeat calc(50% + 0px) 50%;
+}
+
+.content_container {
+	width: 100%;
+	margin: 0px auto;
+	text-align: center;
+/* 	vertical-align: middle; */
+	
+/* 	border: 1px solid #FF00ff; */
+}
+
+.splash_text{
+	display: inline-block;
+	margin: 200px auto auto 0px;
+	padding-top: 0px;
+	float: none;
+}
+
+.title_text, .button_text {
+	height: auto;
+	border: none;
+	overflow: none;
+}
+
+.button_text { padding: 10px; }
+
+.splash_buttons {  
+	max-width: 900px;
+	margin: 20px auto;
+	float: none;
+}
+
+.button_column { 
+	vertical-align: top;
+	display: inline-block;
+	padding: 4px;
+	margin: 0px 10px 0px 10px;
+	float: none;
+}
+
+#left_button, #right_button {
+	position: relative;
+	display: table-cell;
+	width: 200px;
+	height: 20px;
+	background-color: rgba(0, 0, 0, 0.9);
+	
+	padding: 11px 12px 11px 12px;
+	
+	color: #fff;
+	font-size: 16px;
+ 	letter-spacing: 4px;
+
+ 	border: 1px solid #fff;
+}
+
+#left_lower, #right_lower {
+ 	position: absolute;
+	left: -1px;
+	top: 60px;
+ 	
+ 	display: none;
+	width: 188px;
+	max-height: 200px;
+	background-color: rgba(0, 0, 0, 1);
+	padding: 16px 18px 16px 18px;
+	
+	border: 1px solid #fff;
+}
+
+
+/* SLIDE CONTENT
+--------------------------------------------------------*/
+
+#left {	
+	background-position: calc(50% + 350px) 50%; 
+	min-height: 750px;
+}
+
+/* text & image containers */
+
+.content_container {
+	width: 100%;
+	height: 100%;
+	margin: 50px auto;
+ 	vertical-align: middle;
+ 	position: relative;
+ 	
+ 	min-height: 750px;
+
+/*  	border: 1px solid #FF00ff; */
+}
+
+.left_text {
+	display: block;
+	width: 500px;
+	height: auto;
+	margin: 0px auto;
+	padding: 0px 0px;
+	vertical-align: middle;
+	
+/* 	border: 1px solid #000fff; */
+}
+
+/* dot selectors
+-----------------*/
+
+.left_dots {
+	position: relative;
+	margin: 0px 0px 0px 0px;
+	
+/* 	border: 1px solid #fff000; */
+}
+
+#red_dot { 
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: red;
+	opacity: 85%;
+	position: absolute;
+}
+
+.science_dot {
+	left: calc(50% + 190px);
+	top: calc(50% - 90px);
+}
+
+.philosophy_dot {
+	left: calc(50% + 273px);
+	top: calc(50% - 25px);
+}
+
+.governance_dot {
+	left: calc(50% + 300px);
+	top: calc(50% - 275px);
+}
+
+.politics_dot {
+	left: calc(50% + 285px);
+	top: calc(50% + 90px);
+}
+
+/* text box
+-----------------*/
+
+.left_text {
+	margin: 0px auto;
+	max-width: 500px;
+	padding-top: 0px;
+	position: absolute;
+	top: calc(50% - 352px);
+	left: calc(50% - 534px);
+
+}
+
+/* SVG animation
+-----------------*/
+
+#left_lines {
+	padding: 0px;
+	position: absolute;
+	top: calc(50% - 330px);
+	left: calc(50% - 450px);
+}
+	
+
+/* FOOTER
+--------------------------------------------------------*/
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+	margin-top: 0px;
+	border-top: 1px solid #fff;
+ 	
+}
+
+.footer_content {
+	text-align: center;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#title, #footer_nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	
+	margin: 10px auto;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#title {
+	padding: 5px 20px 0px 0px;
+	border-right: 1px solid #fff;
+	text-align: right; 
+}
+
+#footer #nav li {
+	font-size: 11px;
+	margin: 5px 13px 0px 5px;
+}
