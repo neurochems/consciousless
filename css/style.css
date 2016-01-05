@@ -167,7 +167,7 @@ a {
 /* 	border: 1px solid #FF00ff; */
 }
 
-.splash_text{
+#splash_text{
 	display: inline-block;
 	margin: 200px auto auto 0px;
 	padding-top: 0px;
@@ -182,7 +182,7 @@ a {
 
 .button_text { padding: 10px; }
 
-.splash_buttons {  
+#splash_buttons {  
 	max-width: 900px;
 	margin: 20px auto;
 	float: none;
@@ -343,7 +343,7 @@ a {
 /* 	border: 1px solid #0000ff; */
 }
 
-#title, #footer_nav {
+#footer_title, #footer_nav {
 	display: inline-block;
 	text-align: center;
 	vertical-align: middle;
@@ -354,7 +354,7 @@ a {
 /* 	border: 1px solid #0000ff; */
 }
 
-#title {
+#footer_title {
 	padding: 5px 20px 0px 0px;
 	border-right: 1px solid #fff;
 	text-align: right; 

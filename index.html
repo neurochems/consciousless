@@ -118,32 +118,34 @@ var States = {
     main: {
         enter: function(ssm) {
 	        
-            States.enter_state(ssm);
-            
-            $("#left_text").hide();
+	        States.enter_state(ssm);
+	        
+	        $("#left_text").hide();
             $("#left_lines").hide();
             $("#left_dots").hide();
-            $(".splash_text").show();
-            $("#left_button").show();
-            $("#right_button").show();
-            
+                                    			        
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $(".splash_text").hide();
-            $(".splash_buttons").hide();
+            
+            $("#left_dots").stop().slideToggle(100);
+			$("#left_text").stop().slideToggle(100);
         },
         science: function(ssm) {
             ssm.change_state("science");
+            restoreScience();
         },
         philosophy: function(ssm) {
             ssm.change_state("philosophy");
+            restorePhilosophy();
         },
         governance: function(ssm) {
             ssm.change_state("governance");
+            restoreGovernance();
         },
         politics: function(ssm) {
             ssm.change_state("politics");
+            restorePolitics();
         },
     },
     
@@ -151,9 +153,6 @@ var States = {
         enter: function(ssm) {
 	        
             States.enter_state(ssm);
-			
-			$("#left_dots").show();
-            $("#left_text").show();
 
             $("#left_lines").show();
             $("#i0").show();
@@ -162,9 +161,9 @@ var States = {
             $("#i1").hide();
             $("#i3").hide();
             $("#i4").hide();
-            
-            $("#science_header").show();
-            $("#science_text").show();
+                       
+            //$("#science_header").show();
+			//$("#science_text").show();
             
             $("#philosophy_header").hide();
             $("#philosophy_text").hide();
@@ -175,25 +174,32 @@ var States = {
                     
         },
         exit: function(ssm) {
+	        
             States.exit_state(ssm);
-            $("#science_header").hide();
-            $("#science_text").hide();
-            $("#i1").hide();
+            
+            $("#science_header").stop().slideToggle(100);
+            $("#science_text").stop().slideToggle(100);
+                                  
         },
         main: function(ssm) {
-            ssm.change_state("main");
+	        ssm.change_state("main");
+	        restoreMain();
         },
         science: function(ssm) {
             ssm.change_state("science");
+            restoreScience();
         },
         philosophy: function(ssm) {
             ssm.change_state("philosophy");
+            restorePhilosophy();
         },
         governance: function(ssm) {
             ssm.change_state("governance");
+            restoreGovernance();
         },
         politics: function(ssm) {
             ssm.change_state("politics");
+            restorePolitics();
         },
     },
     
@@ -202,9 +208,6 @@ var States = {
             
             States.enter_state(ssm);
             
-            $("#left_dots").show();
-            $("#left_text").show();
-
             $("#left_lines").show();
             $("#i0").show();
             $("#i3").show();
@@ -215,10 +218,7 @@ var States = {
             
             $("#science_header").hide();
             $("#science_text").hide();
-            
-            $("#philosophy_header").show();
-            $("#philosophy_text").show();
-            
+                    
             $("#governance_header").hide();
             $("#governance_text").hide();
             $("#politics_header").hide();
@@ -227,24 +227,28 @@ var States = {
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#philosophy_header").hide();
-            $("#philosophy_text").hide();
-            $("#i3").hide();
+            $("#philosophy_header").stop().slideToggle(100);
+            $("#philosophy_text").stop().slideToggle(100);            
         },
         main: function(ssm) {
             ssm.change_state("main");
+            restoreMain();
         },
         science: function(ssm) {
             ssm.change_state("science");
+            restoreScience();
         },
         philosophy: function(ssm) {
             ssm.change_state("philosophy");
+            restorePhilosophy();
         },
         governance: function(ssm) {
             ssm.change_state("governance");
+            restoreGovernance();
         },
         politics: function(ssm) {
             ssm.change_state("politics");
+            restorePolitics();
         },
     },
     
@@ -252,9 +256,6 @@ var States = {
         enter: function(ssm) {
 	        
             States.enter_state(ssm);
-            
-            $("#left_dots").show();
-            $("#left_text").show();
 
             $("#left_lines").show();
             $("#i0").show();
@@ -268,32 +269,34 @@ var States = {
             $("#science_text").hide();
             $("#philosophy_header").hide();
             $("#philosophy_text").hide();
-            
-            $("#governance_header").show();
-            $("#governance_text").show();
-            
+                        
             $("#politics_header").hide();
             $("#politics_text").hide();
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#governance_header").hide();
-            $("#governance_text").hide();
+            $("#governance_header").stop().slideToggle(100);
+            $("#governance_text").stop().slideToggle(100);
         },
         main: function(ssm) {
             ssm.change_state("main");
+            restoreMain();
         },
         science: function(ssm) {
             ssm.change_state("science");
+            restoreScience();
         },
         philosophy: function(ssm) {
             ssm.change_state("philosophy");
+            restorePhilosophy();
         },
         governance: function(ssm) {
             ssm.change_state("governance");
+            restoreGovernance();
         },
         politics: function(ssm) {
             ssm.change_state("politics");
+            restorePolitics();
         },
     },
     
@@ -301,9 +304,6 @@ var States = {
         enter: function(ssm) {
 	        
             States.enter_state(ssm);
-                
-            $("#left_dots").show();
-            $("#left_text").show();
 
             $("#left_lines").show();
             $("#i0").show();
@@ -320,29 +320,31 @@ var States = {
             $("#governance_header").hide();
             $("#governance_text").hide();
             
-            $("#politics_header").show();
-            $("#politics_text").show();
-
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#politics_header").hide();
-            $("#politics_text").hide();
+            $("#politics_header").stop().slideToggle(100);
+            $("#politics_text").stop().slideToggle(100);
         },
         main: function(ssm) {
             ssm.change_state("main");
+            restoreMain();
         },
         science: function(ssm) {
             ssm.change_state("science");
+            restoreScience();
         },
         philosophy: function(ssm) {
             ssm.change_state("philosophy");
+            restorePhilosophy();
         },
         governance: function(ssm) {
             ssm.change_state("governance");
+            restoreGovernance();
         },
         politics: function(ssm) {
             ssm.change_state("politics");
+            restorePolitics();
         },
     },
     
@@ -421,6 +423,25 @@ var States = {
             ssm.change_state("green");
         },
     },
+    
+    noosphere: {
+        enter: function(ssm) {
+            States.enter_state(ssm);
+            $("#raise").hide();
+            $("#threat").html("severe");
+            $("#threat").css("color", "red").css("font-weight", "bold");
+        },
+        exit: function(ssm) {
+            States.exit_state(ssm);
+            $("#raise").show();
+        },
+        lower: function(ssm) {
+            ssm.change_state("yellow");
+        },
+        raise: function(ssm) {
+            ssm.change_state("green");
+        },
+    },
     		    
     // default callbacks
     enter_state: function(ssm) {
@@ -442,6 +463,8 @@ function SimpleStateMachine() {
 	    
         self.change_state("main");
         
+        // left button
+        
         $("#left_button").on('mouseover touchstart', function(){
 			//toggle list
 			$("#left_lower").stop().slideToggle(100); 				
@@ -449,6 +472,15 @@ function SimpleStateMachine() {
 			//background highlight
 			if($("#main").hasClass('default_bg')) { 
 				$("#main").addClass('left_bg').removeClass('default_bg');}
+		});
+        
+        $("#left_button").mouseout(function(){
+			//toggle list
+			$("#left_lower").stop().slideToggle(120);
+			
+			//background highlight
+			if($("#main").hasClass('left_bg') && !$("#left_button").data("clicked")) { 
+				 $("#main").addClass('default_bg').removeClass('left_bg'); }
 		});
         
         $("#left_button").on('click', function(e) {
@@ -471,6 +503,63 @@ function SimpleStateMachine() {
 			
         });
         
+        // right button
+        
+        $("#right_button").on('mouseover touchstart', function(){
+			//toggle list
+			$("#right_lower").stop().slideToggle(100);
+			
+			//background highlight
+			if($("#main").hasClass('default_bg')) { 
+				$("#main").addClass('right_bg').removeClass('default_bg'); }
+		});
+        
+        $("#right_button").mouseout(function(){
+			//toggle list
+			$("#right_lower").stop().slideToggle(120);
+			
+			//background highlight
+			if($("#main").hasClass('right_bg') && !$("#right_button").data("clicked")) { 
+				 $("#main").addClass('default_bg').removeClass('right_bg'); }
+		});
+        
+        $("#right_button").on('click', function(){
+			//'clicked' flag
+			$(this).data('clicked', true)
+			//slide up text
+			$(".title_text").stop().slideToggle(100);
+			$(".button_column").stop().slideToggle(100);
+	
+			// ANIMATING BACKGROUND POSITION
+			$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
+		    duration: 600,
+		    step: function() {
+		        var position = "calc(50% + " + Math.round(this.temporary_x) + "px) " + Math.round(this.temporary_y) + "%";
+		        $("#main").css("background-position",  position);
+		    }
+			});
+			
+			self.update('games');
+			
+		});
+        
+        // header buttons
+        
+        $("#title").on('click', function(e) {
+            self.update('main');
+        });
+        $("#nav_left").on('click', function(e) {
+            self.update('science');
+        });
+        $("#nav_right").on('click', function(e) {
+            self.update('games');
+        });
+        $("#nav_noosphere").on('click', function(e) {
+            self.update('noosphere');
+        });
+        
+        // left dots
+        
         $("#science_dot").on('click', function(e) {
             self.update('science');
         });
@@ -487,8 +576,6 @@ function SimpleStateMachine() {
      		self.update('games');
         });
         
-/*
-		$(".left_text").hide();
         $("#science_header").hide();
         $("#science_text").hide();
         $("#philosophy_header").hide();
@@ -497,14 +584,6 @@ function SimpleStateMachine() {
         $("#governance_text").hide();
         $("#politics_header").hide();
         $("#politics_text").hide();
-        $("#left_dots").show();
-        $("#left_lines").hide(); 
-        $("#i0").hide();
-        $("#i1").hide();
-        $("#i2").hide();
-        $("#i3").hide();
-        $("#i4").hide(); */
-
 
     };
     
@@ -545,64 +624,104 @@ function SimpleStateMachine() {
     return self;
 }
 
+function restoreMain() {
+	// ANIMATING BACKGROUND POSITION
+	$({bg_x: 350, bg_y: 50}).animate({bg_x: 0, bg_y: 50}, {
+    duration: 600,
+    step: function() {
+        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+        $("#main").css("background-position",  position);
+    }
+	});
+	
+	// return bg to grey
+	if($("#main").hasClass('right_bg') || $("#main").hasClass('left_bg')) { 
+		$("#main").addClass('default_bg');
+		$("#main").removeClass('left_bg');
+		$("#main").removeClass('right_bg');}
+	
+	$("#left_button").data('clicked', false)
+		
+	$(".title_text").stop().slideToggle(100);
+	$(".button_column").stop().slideToggle(100);
+	
+}
+
+function restoreScience() {
+	
+	// restore header and text
+	$("#science_header").stop().slideToggle(100);
+    $("#science_text").stop().slideToggle(100);
+      
+    animateSVG(); 
+
+}
+
+function restorePhilosophy() {
+	
+	// restore header and text
+	$("#philosophy_header").stop().slideToggle(100);
+    $("#philosophy_text").stop().slideToggle(100);
+      
+    animateSVG(); 
+
+}
+
+function restoreGovernance() {
+	
+	// restore header and text
+	$("#governance_header").stop().slideToggle(100);
+    $("#governance_text").stop().slideToggle(100);
+      
+    animateSVG(); 
+
+}
+
+function restorePolitics() {
+	
+	// restore header and text
+	$("#politics_header").stop().slideToggle(100);
+    $("#politics_text").stop().slideToggle(100);
+      
+    animateSVG(); 
+
+}
+
+function animateSVG() {
+	// animate svg lines
+    var current_frame = 0;
+	var total_frames = 25;
+	var path = new Array();
+	var length = new Array();
+	for(var i=0; i<5;i++){
+		path[i] = document.getElementById('i'+i);
+		l = path[i].getTotalLength();
+		length[i] = l;
+		path[i].style.strokeDasharray = l + ' ' + l; 
+		path[i].style.strokeDashoffset = l;
+	}
+	var handle = 0;
+					 
+	var draw = function() {
+	   var progress = current_frame/total_frames;
+	   if (progress > 1) {
+	     window.cancelAnimationFrame(handle);
+	   } else {
+	     current_frame++;
+	     for(var j=0; j<path.length;j++){
+		     path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
+	     }
+	     handle = window.requestAnimationFrame(draw);
+	   }
+	};
+	draw();
+}
+
 $(document).ready(function() {
     
     var ssm = new SimpleStateMachine();
     ssm.init();
 
-    
-   
-			
-	$("#right_button").on('mouseover touchstart', function(){
-		//toggle list
-		$("#right_lower").stop().slideToggle(100);
-		
-		//background highlight
-		if($("#main").hasClass('default_bg')) { 
-			$("#main").addClass('right_bg').removeClass('default_bg'); }
-	
-	});
-		
-	$("#left_button").mouseout(function(){
-		//toggle list
-		$("#left_lower").stop().slideToggle(120);
-		
-		//background highlight
-		if($("#main").hasClass('left_bg') && !$("#left_button").data("clicked")) { 
-			 $("#main").addClass('default_bg').removeClass('left_bg'); }
-    
-	});
-	
-	$("#right_button").mouseout(function(){
-		//toggle list
-		$("#right_lower").stop().slideToggle(120);
-		
-		//background highlight
-		if($("#main").hasClass('right_bg') && !$("#right_button").data("clicked")) { 
-			 $("#main").addClass('default_bg').removeClass('right_bg'); }
-		
-	});
-        
-    $("#left_button").on('click', function(){
-		
-	});
-			
-	$("#right_button").on('click', function(){
-		//'clicked' flag
-		$(this).data('clicked', true)
-		//slide up text
-		$(".title_text").stop().slideToggle(100);
-		$(".button_column").stop().slideToggle(100);
-
-		// ANIMATING BACKGROUND POSITION
-		$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
-	    duration: 600,
-	    step: function() {
-	        var position = "calc(50% + " + Math.round(this.temporary_x) + "px) " + Math.round(this.temporary_y) + "%";
-	        $("#main").css("background-position",  position);
-	    }
-		});
-	});	
 });
 
 </script>
@@ -614,13 +733,13 @@ $(document).ready(function() {
 <header id="header">
 	<div class="header_content">
 		<div id="name">
-			<h1><a href="#main" title="Brendan Lehman">Brendan</br>Lehman</a></h1>
+			<h1><a id="title">Brendan</br>Lehman</a></h1>
 		</div>
 		<nav id="nav">
 			<ul>
-				<li><a href="#main" title="left hemisphere">left hemisphere</a></li>
-				<li><a href="#main" title="right hemisphere">right hemisphere</a></li>
-				<li><a href="#main" title="subcortex">subcortex</a></li>
+				<li><a id="nav_left">left hemisphere</a></li>
+				<li><a id="nav_right">right hemisphere</a></li>
+				<li><a id="nav_noosphere">noosphere</a></li>
 			</ul>
 		</nav>
 	</div>
@@ -633,36 +752,36 @@ $(document).ready(function() {
 	
 <div id="main" class="default_bg">
 	<div class="content_container">
-        <div class="splash_text">
+        <div id="splash_text">
 	    	<p class="title_text">Welcome to consciousless.net, the internet hub of Brendan Lehman.</p>
 	    	<p class="title_text">Please select a region to explore further.</p>
 	  	</div>
-	  	<div class="splash_buttons">
+	  	<div id="splash_buttons">
 			<div class="button_column">
-				<!-- <a onclick="event.preventDefault()"> -->
+				<a onclick="event.preventDefault()">
 					<div id="left_button">
 						left hemisphere
 						<div id="left_lower">
-							<div class="button_text">science</div>
-							<div class="button_text">philosophy</div>
-							<div class="button_text">governance</div>
-							<div class="button_text">politics</div>
+							<div id="main_science" class="button_text">science</div>
+							<div id="main_philosophy" class="button_text">philosophy</div>
+							<div id="main_governance" class="button_text">governance</div>
+							<div id="main_politics" class="button_text">politics</div>
 						</div>
 					</div>
-				<!-- </a> -->
+				</a>
 			</div>
 			<div class="button_column">
-				<!-- <a onclick="event.preventDefault()"> -->
+				<a onclick="event.preventDefault()">
 					<div id="right_button">
 						right hemisphere
 						<div id="right_lower">
-							<p class="button_text">games</p>
-							<p class="button_text">music</p>
-							<p class="button_text">code</p>
-							<p class="button_text">art</p>
+							<div id="main_games" class="button_text">games</div>
+							<div id="main_music" class="button_text">music</div>
+							<div id="main_code" class="button_text">code</div>
+							<div id="main_art" class="button_text">art</div>
 						</div>
 					</div>
-				<!-- </a> -->
+				</a>
 			</div>
 	  	</div>
 
@@ -758,37 +877,6 @@ $(document).ready(function() {
 					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.99997 -286,0"/>
 			</svg>
 		</div>
-
-		
-		<!-- JQUERY FOR SVG ANIMATIONS -->
-		<script>
-			var current_frame = 0;
-			var total_frames = 25;
-			var path = new Array();
-			var length = new Array();
-			for(var i=0; i<4;i++){
-				path[i] = document.getElementById('i'+i);
-				l = path[i].getTotalLength();
-				length[i] = l;
-				path[i].style.strokeDasharray = l + ' ' + l; 
-				path[i].style.strokeDashoffset = l;
-			}
-			var handle = 0;
-							 
-			var draw = function() {
-			   var progress = current_frame/total_frames;
-			   if (progress > 1) {
-			     window.cancelAnimationFrame(handle);
-			   } else {
-			     current_frame++;
-			     for(var j=0; j<path.length;j++){
-				     path[j].style.strokeDashoffset = Math.floor(length[j] * (1 - progress));
-			     }
-			     handle = window.requestAnimationFrame(draw);
-			   }
-			};
-			draw();
-		</script>
 	</div> 
 </div> 
 
@@ -799,7 +887,7 @@ $(document).ready(function() {
 <!-- FOOTER START -->
 <footer id="footer">
 	<div class="footer_content">
-		<div id="title">
+		<div id="footer_title">
 			<h2>Aether</h2>
 		</div>
 		<nav id="nav">
