@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="en">
-	<head>
+	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
 		<title>Brendan Lehman | consciousless.net</title>
 		<link type="text/css" rel="stylesheet" href="css/style.css"/>
@@ -19,94 +19,9 @@
 		<meta name="description" http-equiv="description" content="Neuroscience, video games, music, art." />
 		<meta name="author" content="Brendan Lehman" />
 		<!--SEO ENDS-->
-
-		<!-- JQUERY FOR NAVBAR SELECTION	 -->
-		<script>
-		$(document).ready(function (){
-				    $("#name").click(function (){ $('html, body').animate({ scrollTop: $("#main").offset().top }, 600); });
-				    $("#left").click(function (){ $('html, body').animate({ scrollTop: $("#science").offset().top }, 600); });
-				    $("#right").click(function (){ $('html, body').animate({ scrollTop: $("#games").offset().top }, 1200); });
-				    $("#sub").click(function (){ $('html, body').animate({ scrollTop: $("#main").offset().top }, 600); });
-			});
-		</script>
 		
-		<!-- JQUERY FOR MOUSE OVER UI ELEMENTS -->
-
-<!--
-		<script>
-		$(document).ready(function(){
-					
-			$("#left_button").on('mouseover touchstart', function(){
-				//toggle list
-				$("#left_lower").stop().slideToggle(100); 				
- 				
- 				//background highlight
-				if($("#main").hasClass('default_bg')) { $("#main").addClass('left_bg').removeClass('default_bg');}
-
-			});
-			$("#right_button").on('mouseover touchstart', function(){
-				//toggle list
-				$("#right_lower").stop().slideToggle(100);
-				
-				//background highlight
-				if($("#main").hasClass('default_bg')) { $("#main").addClass('right_bg').removeClass('default_bg'); }
-				
-			});
-			$("#left_button").mouseout(function(){
-				//toggle list
-				$("#left_lower").stop().slideToggle(120);
-				
-				//background highlight
-				if($("#main").hasClass('left_bg') && !$("#left_button").data("clicked")) { 
-					 $("#main").addClass('default_bg').removeClass('left_bg'); }
-		        
-			});
-			$("#right_button").mouseout(function(){
-				//toggle list
-				$("#right_lower").stop().slideToggle(120);
-				
-				//background highlight
-				if($("#main").hasClass('right_bg') && !$("#right_button").data("clicked")) { 
-					 $("#main").addClass('default_bg').removeClass('right_bg'); }
-				
-			});
-			
-			$("#left_button").on('click', function(){
-				//'clicked' flag
-				$(this).data('clicked', true)
-				//slide up text
-				
-				$(".title_text").stop().slideToggle(100);
-				$(".button_column").stop().slideToggle(100);
-
-				// ANIMATING BACKGROUND POSITION
-				$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
-			    duration: 600,
-			    step: function() {
-			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
-			        $("#main").css("background-position",  position);
-			    }
-				});
-			});
-			$("#right_button").on('click', function(){
-				//'clicked' flag
-				$(this).data('clicked', true)
-				//slide up text
-				$(".title_text").stop().slideToggle(100);
-				$(".button_column").stop().slideToggle(100);
-				// ANIMATING BACKGROUND POSITION
-				$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
-			    duration: 600,
-			    step: function() {
-			        var position = "calc(50% + " + Math.round(this.temporary_x) + "px) " + Math.round(this.temporary_y) + "%";
-			        $("#main").css("background-position",  position);
-			    }
-				});
-			});
-		});
-		</script>
--->
-		
+		<!-- favicon -->
+		<link rel="icon" type="image/png" href="assets/dot.png">		
 </head>
 	
 <body>
@@ -117,19 +32,19 @@ var States = {
 
     main: {
         enter: function(ssm) {
-	        
 	        States.enter_state(ssm);
 	        
 	        $("#left_text").hide();
-            $("#left_lines").hide();
-            $("#left_dots").hide();
-                                    			        
+	        $("#left_lines").hide();
+	        $("#left_dots").hide();
+	        
+	        $("#right_text").hide();
+	        $("#right_lines").hide();
+	        $("#right_dots").hide();
+	        
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            
-            $("#left_dots").stop().slideToggle(100);
-			$("#left_text").stop().slideToggle(100);
         },
         science: function(ssm) {
             ssm.change_state("science");
@@ -147,6 +62,22 @@ var States = {
             ssm.change_state("politics");
             restorePolitics();
         },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
+        },
+        music: function(ssm) {
+            ssm.change_state("music");
+            restoreMusic();
+        },
+        code: function(ssm) {
+            ssm.change_state("code");
+            restoreCode();
+        },
+        art: function(ssm) {
+            ssm.change_state("art");
+            restoreArt();
+        }
     },
     
     science: {
@@ -161,17 +92,7 @@ var States = {
             $("#i1").hide();
             $("#i3").hide();
             $("#i4").hide();
-                       
-            //$("#science_header").show();
-			//$("#science_text").show();
-            
-            $("#philosophy_header").hide();
-            $("#philosophy_text").hide();
-            $("#governance_header").hide();
-            $("#governance_text").hide();
-            $("#politics_header").hide();
-            $("#politics_text").hide();
-                    
+                                                    
         },
         exit: function(ssm) {
 	        
@@ -183,7 +104,7 @@ var States = {
         },
         main: function(ssm) {
 	        ssm.change_state("main");
-	        restoreMain();
+	        restoreMainL();
         },
         science: function(ssm) {
             ssm.change_state("science");
@@ -200,6 +121,10 @@ var States = {
         politics: function(ssm) {
             ssm.change_state("politics");
             restorePolitics();
+        },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
     },
     
@@ -216,14 +141,6 @@ var States = {
             $("#i2").hide();
             $("#i4").hide();
             
-            $("#science_header").hide();
-            $("#science_text").hide();
-                    
-            $("#governance_header").hide();
-            $("#governance_text").hide();
-            $("#politics_header").hide();
-            $("#politics_text").hide();
-
         },
         exit: function(ssm) {
             States.exit_state(ssm);
@@ -232,7 +149,7 @@ var States = {
         },
         main: function(ssm) {
             ssm.change_state("main");
-            restoreMain();
+            restoreMainL();
         },
         science: function(ssm) {
             ssm.change_state("science");
@@ -249,6 +166,10 @@ var States = {
         politics: function(ssm) {
             ssm.change_state("politics");
             restorePolitics();
+        },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
     },
     
@@ -265,13 +186,6 @@ var States = {
             $("#i3").hide();
             $("#i4").hide();
             
-            $("#science_header").hide();
-            $("#science_text").hide();
-            $("#philosophy_header").hide();
-            $("#philosophy_text").hide();
-                        
-            $("#politics_header").hide();
-            $("#politics_text").hide();
         },
         exit: function(ssm) {
             States.exit_state(ssm);
@@ -280,7 +194,7 @@ var States = {
         },
         main: function(ssm) {
             ssm.change_state("main");
-            restoreMain();
+            restoreMainL();
         },
         science: function(ssm) {
             ssm.change_state("science");
@@ -297,6 +211,10 @@ var States = {
         politics: function(ssm) {
             ssm.change_state("politics");
             restorePolitics();
+        },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
     },
     
@@ -312,14 +230,7 @@ var States = {
             $("#i1").hide();
             $("#i2").hide();
             $("#i3").hide();
-            
-            $("#science_header").hide();
-            $("#science_text").hide();
-            $("#philosophy_header").hide();
-            $("#philosophy_text").hide();
-            $("#governance_header").hide();
-            $("#governance_text").hide();
-            
+                        
         },
         exit: function(ssm) {
             States.exit_state(ssm);
@@ -328,7 +239,7 @@ var States = {
         },
         main: function(ssm) {
             ssm.change_state("main");
-            restoreMain();
+            restoreMainL();
         },
         science: function(ssm) {
             ssm.change_state("science");
@@ -346,82 +257,198 @@ var States = {
             ssm.change_state("politics");
             restorePolitics();
         },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
+        },
     },
     
     games: {
         enter: function(ssm) {
+	        
             States.enter_state(ssm);
-            $("#raise").hide();
-            $("#threat").html("severe");
-            $("#threat").css("color", "red").css("font-weight", "bold");
+            
+            $("#right_lines").show();
+            $("#i5").show();
+            $("#i6").show();
+            
+            $("#i7").hide();
+            $("#i8").hide();
+            $("#i9").hide();
+            
+            $("#left_text").hide();
+                     
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#raise").show();
+            
+            $("#games_header").stop().slideToggle(100);
+            $("#games_text").stop().slideToggle(100);
+            
         },
-        lower: function(ssm) {
-            ssm.change_state("yellow");
+        main: function(ssm) {
+            ssm.change_state("main");
+            restoreMainR();
         },
-        raise: function(ssm) {
-            ssm.change_state("green");
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
+        music: function(ssm) {
+            ssm.change_state("music");
+            restoreMusic();
+        },
+        code: function(ssm) {
+            ssm.change_state("code");
+            restoreCode();
+        },
+        art: function(ssm) {
+            ssm.change_state("art");
+            restoreArt();
+        },
+        science: function(ssm) {
+            ssm.change_state("science");
+            restoreScience();
+        },
+
+    },
+    
+    music: {
+        enter: function(ssm) {
+            States.enter_state(ssm);
+            
+            $("#right_lines").show();
+            $("#i5").show();
+            $("#i7").show();
+            
+            $("#i6").hide();
+            $("#i8").hide();
+            $("#i9").hide();
+
+        },
+        exit: function(ssm) {
+            States.exit_state(ssm);
+            
+            $("#music_header").stop().slideToggle(100);
+            $("#music_text").stop().slideToggle(100);
+        },
+        main: function(ssm) {
+            ssm.change_state("main");
+            restoreMainR();
+        },
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
+        },
+        music: function(ssm) {
+            ssm.change_state("music");
+            restoreMusic();
+        },
+        code: function(ssm) {
+            ssm.change_state("code");
+            restoreCode();
+        },
+        art: function(ssm) {
+            ssm.change_state("art");
+            restoreArt();
+        },
+        science: function(ssm) {
+            ssm.change_state("science");
+            restoreScience();
+        },
+
     },
     
      code: {
         enter: function(ssm) {
             States.enter_state(ssm);
-            $("#raise").hide();
-            $("#threat").html("severe");
-            $("#threat").css("color", "red").css("font-weight", "bold");
+            
+            $("#right_lines").show();
+            $("#i5").show();
+            $("#i8").show();
+            
+            $("#i6").hide();
+            $("#i7").hide();
+            $("#i9").hide();
+                                 
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#raise").show();
+            
+            $("#code_header").stop().slideToggle(100);
+            $("#code_text").stop().slideToggle(100);
         },
-        lower: function(ssm) {
-            ssm.change_state("yellow");
+        main: function(ssm) {
+            ssm.change_state("main");
+            restoreMainR();
         },
-        raise: function(ssm) {
-            ssm.change_state("green");
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
+        music: function(ssm) {
+            ssm.change_state("music");
+            restoreMusic();
+        },
+        code: function(ssm) {
+            ssm.change_state("code");
+            restoreCode();
+        },
+        art: function(ssm) {
+            ssm.change_state("art");
+            restoreArt();
+        },
+        science: function(ssm) {
+            ssm.change_state("science");
+            restoreScience();
+        },
+
     },
-    
-     music: {
-        enter: function(ssm) {
-            States.enter_state(ssm);
-            $("#raise").hide();
-            $("#threat").html("severe");
-            $("#threat").css("color", "red").css("font-weight", "bold");
-        },
-        exit: function(ssm) {
-            States.exit_state(ssm);
-            $("#raise").show();
-        },
-        lower: function(ssm) {
-            ssm.change_state("yellow");
-        },
-        raise: function(ssm) {
-            ssm.change_state("green");
-        },
-    },
-    
+      
      art: {
         enter: function(ssm) {
             States.enter_state(ssm);
-            $("#raise").hide();
-            $("#threat").html("severe");
-            $("#threat").css("color", "red").css("font-weight", "bold");
+            
+            $("#right_lines").show();
+            $("#i5").show();
+            $("#i9").show();
+            
+            $("#i6").hide();
+            $("#i7").hide();
+            $("#i8").hide();
+                                 
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#raise").show();
+            
+            $("#art_header").stop().slideToggle(100);
+            $("#art_text").stop().slideToggle(100);
         },
-        lower: function(ssm) {
-            ssm.change_state("yellow");
+        main: function(ssm) {
+            ssm.change_state("main");
+            restoreMainR();
         },
-        raise: function(ssm) {
-            ssm.change_state("green");
+        games: function(ssm) {
+            ssm.change_state("games");
+            restoreGames();
         },
+        music: function(ssm) {
+            ssm.change_state("music");
+            restoreMusic();
+        },
+        code: function(ssm) {
+            ssm.change_state("code");
+            restoreCode();
+        },
+        art: function(ssm) {
+            ssm.change_state("art");
+            restoreArt();
+        },
+        science: function(ssm) {
+            ssm.change_state("science");
+            restoreScience();
+        },
+
     },
     
     noosphere: {
@@ -461,9 +488,15 @@ function SimpleStateMachine() {
     // init
     self.init = function() {
 	    
+	    // initial state //
         self.change_state("main");
         
-        // left button
+        // initial hides //
+    	
+        leftHide();		// left content
+        rightHide();	// right content
+        
+        // left button //
         
         $("#left_button").on('mouseover touchstart', function(){
 			//toggle list
@@ -486,9 +519,14 @@ function SimpleStateMachine() {
         $("#left_button").on('click', function(e) {
 	        //'clicked' flag
 			$(this).data('clicked', true)
+			
 			//slide up text
 			$(".title_text").stop().slideToggle(100);
 			$(".button_column").stop().slideToggle(100);
+			
+			//show dots and text
+			$("#left_dots").stop().slideToggle(100);
+			$("#left_text").stop().slideToggle(100);
 	
 			// ANIMATING BACKGROUND POSITION
 			$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
@@ -499,11 +537,12 @@ function SimpleStateMachine() {
 		    }
 			});
 	        
+	        // go to science state
 			self.update('science');
 			
         });
         
-        // right button
+        // right button //
         
         $("#right_button").on('mouseover touchstart', function(){
 			//toggle list
@@ -526,9 +565,14 @@ function SimpleStateMachine() {
         $("#right_button").on('click', function(){
 			//'clicked' flag
 			$(this).data('clicked', true)
+			
 			//slide up text
 			$(".title_text").stop().slideToggle(100);
 			$(".button_column").stop().slideToggle(100);
+			
+			// show dots and text
+			$("#right_dots").stop().slideToggle(100);
+			$("#right_text").stop().slideToggle(100);
 	
 			// ANIMATING BACKGROUND POSITION
 			$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
@@ -539,27 +583,148 @@ function SimpleStateMachine() {
 		    }
 			});
 			
+			// go to games state
 			self.update('games');
 			
 		});
         
-        // header buttons
+        // header buttons //
         
-        $("#title").on('click', function(e) {
+        $("#name").on('click', function(e) {
+            
+            // from left
+            if($("#main").hasClass('left_bg')) { 
+	            // remove background highlight
+				$("#main").addClass('default_bg').removeClass('left_bg'); 
+			}
+			
+			// from right
+			else if ($("#main").hasClass('right_bg')) {
+				// remove background highlight
+				$("#main").addClass('default_bg').removeClass('right_bg');
+			}
+            
             self.update('main');
         });
+        
         $("#nav_left").on('click', function(e) {
-            self.update('science');
+	        
+			// from main
+			if($("#main").hasClass('default_bg')) { 
+				
+				//slide up text
+				$(".title_text").stop().slideToggle(100);
+				$(".button_column").stop().slideToggle(100);
+				
+				//show dots and text
+				$("#left_dots").stop().slideToggle(100);
+				$("#left_text").stop().slideToggle(100);		 
+				
+				// ANIMATING BACKGROUND POSITION
+				$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});			
+				
+				//background highlight
+				$("#main").addClass('left_bg').removeClass('default_bg');
+					
+			}
+			
+			// from right
+			else if ($("#main").hasClass('right_bg')) {
+
+				//hide dots and text
+				$("#right_text").stop().slideToggle(100);
+	            $("#right_lines").stop().slideToggle(100);
+	            $("#right_dots").stop().slideToggle(100);
+	            
+	            //show dots and text
+	            $("#left_dots").stop().slideToggle(100);
+	            $("#left_text").stop().slideToggle(100);
+				            				
+				// ANIMATING BACKGROUND POSITION
+				$({bg_x: -350, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});
+				
+				//background highlight
+				$("#main").addClass('left_bg').removeClass('right_bg');
+
+			}
+			
+			self.update('science');
+			      
         });
+        
         $("#nav_right").on('click', function(e) {
+            
+            // from main
+			if($("#main").hasClass('default_bg')) { 
+				
+				//slide up text
+				$(".title_text").stop().slideToggle(100);
+				$(".button_column").stop().slideToggle(100);
+				
+				//show dots and text
+				$("#right_dots").stop().slideToggle(100);
+				$("#right_text").stop().slideToggle(100);
+				
+				//background highlight
+				$("#main").addClass('right_bg').removeClass('default_bg'); 
+				
+				// ANIMATING BACKGROUND POSITION
+				$({bg_x: 0, bg_y: 50}).animate({bg_x: -350, bg_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});		
+			}
+			
+			// from left
+			else if ($("#main").hasClass('left_bg')) {
+				
+				//hide dots and text
+				$("#left_text").stop().slideToggle(100);
+	            $("#left_lines").stop().slideToggle(100);
+	            $("#left_dots").stop().slideToggle(100);
+	            
+	            //show dots and text
+				$("#right_dots").stop().slideToggle(100);
+				$("#right_text").stop().slideToggle(100);
+	            
+	            //background highlight
+				$("#main").addClass('right_bg').removeClass('left_bg');
+				
+				// ANIMATING BACKGROUND POSITION
+				$({bg_x: 350, bg_y: 50}).animate({bg_x: -350, bg_y: 50}, {
+			    duration: 600,
+			    step: function() {
+			        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+			        $("#main").css("background-position",  position);
+			    }
+				});
+
+			}
+            
+            console.log('left_bg:', $("#main").hasClass('left_bg'));
             self.update('games');
         });
+       
         $("#nav_noosphere").on('click', function(e) {
             self.update('noosphere');
         });
         
         // left dots
-        
         $("#science_dot").on('click', function(e) {
             self.update('science');
         });
@@ -572,20 +737,23 @@ function SimpleStateMachine() {
         $("#politics_dot").on('click', function(e) {
             self.update('politics');
         });
-        $("#right_button").on('click', function(e) {
-     		self.update('games');
-        });
-        
-        $("#science_header").hide();
-        $("#science_text").hide();
-        $("#philosophy_header").hide();
-        $("#philosophy_text").hide();
-        $("#governance_header").hide();
-        $("#governance_text").hide();
-        $("#politics_header").hide();
-        $("#politics_text").hide();
 
+		// right dots
+        $("#games_dot").on('click', function(e) {
+            self.update('games');
+        });
+        $("#music_dot").on('click', function(e) {
+            self.update('music');
+        });
+        $("#code_dot").on('click', function(e) {
+            self.update('code');
+        });
+        $("#art_dot").on('click', function(e) {
+            self.update('art');
+        });
     };
+    
+    // state machine functions 
     
     self.update = function(action) {
         if ( States[self.state][action] ) {
@@ -624,7 +792,8 @@ function SimpleStateMachine() {
     return self;
 }
 
-function restoreMain() {
+// main restore
+function restoreMainL() {
 	// ANIMATING BACKGROUND POSITION
 	$({bg_x: 350, bg_y: 50}).animate({bg_x: 0, bg_y: 50}, {
     duration: 600,
@@ -635,10 +804,9 @@ function restoreMain() {
 	});
 	
 	// return bg to grey
-	if($("#main").hasClass('right_bg') || $("#main").hasClass('left_bg')) { 
+	if($("#main").hasClass('left_bg')) { 
 		$("#main").addClass('default_bg');
-		$("#main").removeClass('left_bg');
-		$("#main").removeClass('right_bg');}
+		$("#main").removeClass('left_bg');}
 	
 	$("#left_button").data('clicked', false)
 		
@@ -647,14 +815,35 @@ function restoreMain() {
 	
 }
 
-function restoreScience() {
+function restoreMainR() {
+	// ANIMATING BACKGROUND POSITION
+	$({bg_x: -350, bg_y: 50}).animate({bg_x: 0, bg_y: 50}, {
+    duration: 600,
+    step: function() {
+        var position = "calc(50% + " + Math.round(this.bg_x) + "px) " + Math.round(this.bg_y) + "%";
+        $("#main").css("background-position",  position);
+    }
+	});
 	
+	// return bg to grey
+	if($("#main").hasClass('right_bg')) { 
+		$("#main").addClass('default_bg');
+		$("#main").removeClass('right_bg');}
+	
+	$("#right_button").data('clicked', false)
+		
+	$(".title_text").stop().slideToggle(100);
+	$(".button_column").stop().slideToggle(100);
+	
+}
+
+// left restore
+function restoreScience() {
 	// restore header and text
 	$("#science_header").stop().slideToggle(100);
     $("#science_text").stop().slideToggle(100);
-      
-    animateSVG(); 
-
+    // animate line  
+    animateSVG();
 }
 
 function restorePhilosophy() {
@@ -662,7 +851,7 @@ function restorePhilosophy() {
 	// restore header and text
 	$("#philosophy_header").stop().slideToggle(100);
     $("#philosophy_text").stop().slideToggle(100);
-      
+    // animate line  
     animateSVG(); 
 
 }
@@ -672,7 +861,7 @@ function restoreGovernance() {
 	// restore header and text
 	$("#governance_header").stop().slideToggle(100);
     $("#governance_text").stop().slideToggle(100);
-      
+    // animate line 
     animateSVG(); 
 
 }
@@ -682,18 +871,76 @@ function restorePolitics() {
 	// restore header and text
 	$("#politics_header").stop().slideToggle(100);
     $("#politics_text").stop().slideToggle(100);
-      
+    // animate line 
     animateSVG(); 
 
 }
 
+// right restore
+function restoreGames() {
+	// restore header and text
+	$("#games_header").stop().slideToggle(100);
+    $("#games_text").stop().slideToggle(100);
+    // animate line
+    animateSVG(); 
+}
+
+function restoreMusic() {
+	// restore header and text
+	$("#music_header").stop().slideToggle(100);
+    $("#music_text").stop().slideToggle(100);
+    // animate line 
+    animateSVG(); 
+}
+
+function restoreCode() {
+	// restore header and text
+	$("#code_header").stop().slideToggle(100);
+    $("#code_text").stop().slideToggle(100);
+    // animate line
+    animateSVG(); 
+}
+
+function restoreArt() {
+	// restore header and text
+	$("#art_header").stop().slideToggle(100);
+    $("#art_text").stop().slideToggle(100);
+    // animate line  
+    animateSVG(); 
+}
+
+// left hide
+function leftHide() {
+	$("#science_header").hide();
+    $("#science_text").hide();
+    $("#philosophy_header").hide();
+    $("#philosophy_text").hide();
+    $("#governance_header").hide();
+    $("#governance_text").hide();
+    $("#politics_header").hide();
+    $("#politics_text").hide();
+}
+
+// right hide
+function rightHide() {
+    $("#games_header").hide();
+    $("#games_text").hide();
+    $("#music_header").hide();
+    $("#music_text").hide();
+    $("#code_header").hide();
+    $("#code_text").hide();
+    $("#art_header").hide();
+    $("#art_text").hide();
+}
+
+// svg animation
 function animateSVG() {
 	// animate svg lines
     var current_frame = 0;
 	var total_frames = 25;
 	var path = new Array();
 	var length = new Array();
-	for(var i=0; i<5;i++){
+	for(var i=0; i<10;i++){
 		path[i] = document.getElementById('i'+i);
 		l = path[i].getTotalLength();
 		length[i] = l;
@@ -717,6 +964,7 @@ function animateSVG() {
 	draw();
 }
 
+// create + init state machine on page ready
 $(document).ready(function() {
     
     var ssm = new SimpleStateMachine();
@@ -733,13 +981,14 @@ $(document).ready(function() {
 <header id="header">
 	<div class="header_content">
 		<div id="name">
-			<h1><a id="title">Brendan</br>Lehman</a></h1>
+			<h1 id="first">Brendan</h1>
+			<h1 id="last">Lehman</h1>
 		</div>
 		<nav id="nav">
 			<ul>
-				<li><a id="nav_left">left hemisphere</a></li>
-				<li><a id="nav_right">right hemisphere</a></li>
-				<li><a id="nav_noosphere">noosphere</a></li>
+				<li><div id="nav_left">left hemisphere</div></li>
+				<li><div id="nav_right">right hemisphere</div></li>
+				<li><div id="nav_noosphere">noosphere</div></li>
 			</ul>
 		</nav>
 	</div>
@@ -753,35 +1002,32 @@ $(document).ready(function() {
 <div id="main" class="default_bg">
 	<div class="content_container">
         <div id="splash_text">
-	    	<p class="title_text">Welcome to consciousless.net, the internet hub of Brendan Lehman.</p>
-	    	<p class="title_text">Please select a region to explore further.</p>
+	    	<p class="title_text">welcome to consciousless.net</p>
+	    	<p class="title_text">for novel stimuli, access the <a href="noosphere.html">NOOSPHERE</a></p>
+	    	<p class="title_text">please select a region to explore further</p>
 	  	</div>
 	  	<div id="splash_buttons">
 			<div class="button_column">
-				<a onclick="event.preventDefault()">
-					<div id="left_button">
-						left hemisphere
-						<div id="left_lower">
-							<div id="main_science" class="button_text">science</div>
-							<div id="main_philosophy" class="button_text">philosophy</div>
-							<div id="main_governance" class="button_text">governance</div>
-							<div id="main_politics" class="button_text">politics</div>
-						</div>
+				<div id="left_button">
+					left hemisphere
+					<div id="left_lower">
+						<div id="main_science" class="button_text">science</div>
+						<div id="main_philosophy" class="button_text">philosophy</div>
+						<div id="main_governance" class="button_text">governance</div>
+						<div id="main_politics" class="button_text">politics</div>
 					</div>
-				</a>
+				</div>
 			</div>
 			<div class="button_column">
-				<a onclick="event.preventDefault()">
-					<div id="right_button">
-						right hemisphere
-						<div id="right_lower">
-							<div id="main_games" class="button_text">games</div>
-							<div id="main_music" class="button_text">music</div>
-							<div id="main_code" class="button_text">code</div>
-							<div id="main_art" class="button_text">art</div>
-						</div>
+				<div id="right_button">
+					right hemisphere
+					<div id="right_lower">
+						<div id="main_games" class="button_text">games</div>
+						<div id="main_music" class="button_text">music</div>
+						<div id="main_code" class="button_text">code</div>
+						<div id="main_art" class="button_text">art</div>
 					</div>
-				</a>
+				</div>
 			</div>
 	  	</div>
 
@@ -812,16 +1058,16 @@ $(document).ready(function() {
 				id="Layer_1"
 				version="1.1"
 				xml:space="preserve">
-				<path id="i0" transform="translate(0,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
-					d="m 0.11661799,1052.2467 29.51293101,-39.7204 30.370455,0"/>
+				<path id="i0" transform="translate(40,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
+					d="m 0,1051.3721 39.108911,-39.1089 25.247525,0"/>
 				<path id="i1" transform="translate(251,-993)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 499.66172,1051.8976 -81.18875,-58.25788 -418.27635535,0 2.05540315,-0.73744"/>
+					d="m 499.66172,1051.8976 -81.18875,-58.25788 -331.147642,0"/>
 				<path id="i2" transform="translate(230,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 425.01682,1049.8415 -117.1875,-117.1874 0,-137.5 -286.71875,0 0,0"/>
+					d="m 425.01682,1049.8415 -117.1875,-117.1874 0,-137.5 -194.63954,0"/>
 				<path id="i3" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 507.70267,1116.0017 0,-94.0452 -93.3381,-93.33806 0,-133.64318 -391.737153,0"/>
+					d="m 507.70267,1116.0017 0,-94.0452 -93.3381,-93.33806 0,-133.64318 -303.61834,0"/>
 				<path id="i4" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.99997 -286,0"/>
+					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.00987 -196.89109,0"/>
 			</svg>
 		</div>
 		
@@ -832,30 +1078,23 @@ $(document).ready(function() {
 			<div class="red_dot" id="politics_dot"></div>
 	  	</div>
 		
-<!-- RIGHT
+<!-- RIGHT -->
 		
-		<div class="right_text">
+		<div id="right_text">
 			<h3 id="games_header">GAMES</h3>
 			<p id="games_text">Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text Games text </p>
-			<!-- connection links to other slides go here
+			<!-- connection links to other slides go here -->
 			<h3 id="music_header">MUSIC</h3>
 			<p id="music_text">Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text Music text </p>
-			<!-- connection links to other slides go here
+			<!-- connection links to other slides go here -->
 			<h3 id="code_header">CODE</h3>
 			<p id="code_text">Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text Code text </p>
-			<!-- connection links to other slides go here
-			<h3 id="art_header">ART/h3>
+			<!-- connection links to other slides go here -->
+			<h3 id="art_header">ART</h3>
 			<p id="art_text">Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text Art text </p>
-			<!-- connection links to other slides go here
+			<!-- connection links to other slides go here -->
 		</div>
-	  	
-	  	<div id="right_dots">
-		  	<div id="red_dot" class="games_dot"></div>
-			<div id="red_dot" class="music_dot"></div>
-			<div id="red_dot" class="code_dot"></div>
-			<div id="red_dot" class="art_dot"></div>
-	  	</div>
-	  	
+	  		
 	  	<div id="right_lines">
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
@@ -865,22 +1104,28 @@ $(document).ready(function() {
 				id="Layer_1"
 				version="1.1"
 				xml:space="preserve">
-				<path id="i0" transform="translate(20,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
-					d="m 0.11661799,1052.2467 29.51293101,-39.7204 30.370455,0"/>
-				<path id="i1" transform="translate(251,-993)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 499.66172,1051.8976 -81.18875,-58.25788 -418.27635535,0 2.05540315,-0.73744"/>
-				<path id="i2" transform="translate(230,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 425.01682,1049.8415 -117.1875,-117.1874 0,-137.5 -286.71875,0 0,0"/>
-				<path id="i3" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 507.70267,1116.0017 0,-94.0452 -93.3381,-93.33806 0,-133.64318 -391.737153,0"/>
-				<path id="i4" transform="translate(228,-795)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
-					d="m 521,1231.3621 -212.5,-212.5 0.5,-0.5 0,-223.99997 -286,0"/>
+				<path id="i5" transform="translate(-30,-1012)" fill="none" stroke="#ffffff" stroke-width="1px" stroke-opacity="1"
+					d="m 742.11207,1050.962 -40.14558,-37.1678 -35.46584,-0.4077"/>
+				<path id="i6" transform="translate(60,-750)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="M 0.99009901,1050.382 114.85149,936.52062 l 0,-185.14852 290.09901,0"/>
+				<path id="i7" transform="translate(125,-765)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="M 0.99009901,1050.382 114.85149,936.52062 l 0,-171.28713 226.73267,0"/>
+				<path id="i8" transform="translate(28,-988)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 0,1051.3721 61.881188,-61.88118 371.782182,0"/>
+				<path id="i9" transform="translate(32,-640)" fill="none" stroke="#ff0000" stroke-width="1px" stroke-opacity="1"
+					d="m 0,1050.382 0,-117.82177 135.14851,-135.14852 0,-156.93069 301.48515,0"/>
 			</svg>
 		</div>
+		
+		<div id="right_dots">
+		  	<div class="red_dot" id="games_dot"></div>
+			<div class="red_dot" id="music_dot"></div>
+			<div class="red_dot" id="code_dot"></div>
+			<div class="red_dot" id="art_dot"></div>
+	  	</div>
+		
 	</div> 
 </div> 
-
--->
 
 <!-- CONTENT END -->
 
@@ -892,13 +1137,13 @@ $(document).ready(function() {
 		</div>
 		<nav id="nav">
 			<ul>
-				<li><a href="https://www.twitter.com/neurochems">twitter</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="brendan@consciousless.net">email</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="digital forest collective">itch.io</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="brendan lehman">researchgate</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="brain tape">bandcamp</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="neurochems">github</a></li>
-				<li><a href="http://www.twitter.com/neurochems" title="clarksfortress">instagram</a></li>
+				<li><a href="https://www.twitter.com/neurochems" target="_newtab" title="@neurochems">twitter</a></li>
+				<li><a href="mailto:brendan@consciousless.net" target="_newtab" title="brendan@consciousless.net">email</a></li>
+				<li><a href="http://inthetrees.itch.io/" target="_newtab" title="digital forest collective">itch.io</a></li>
+				<li><a href="https://www.researchgate.net/profile/Brendan_Lehman" target="_newtab" title="brendan lehman">researchgate</a></li>
+				<li><a href="http://braintape.bandcamp.com" target="_newtab" title="brain tape">bandcamp</a></li>
+				<li><a href="https://github.com/neurochems" target="_newtab" title="neurochems">github</a></li>
+				<li><a href="https://www.instagram.com/clarksfortress/" target="_newtab" title="clarksfortress">instagram</a></li>
 			</ul>
 		</nav>
 	</div>
