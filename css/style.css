@@ -14,7 +14,7 @@ html, body {
     height: 100%;
 /* 	background-attachment: fixed; */
 	background-color: #000;
-	overflow: hidden;
+/* 	overflow: hidden; */
 }
 
 body {
@@ -68,7 +68,6 @@ p {
 a {
 	font-family: "Letter Gothic Std", serif;
 	color: #fff;
-	text-transform: lowercase;
  	letter-spacing: 2px;
  	text-decoration: underline;
 }
@@ -137,6 +136,19 @@ a {
 	cursor: pointer;
 }
 
+#header a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+/*= NAVIGATION - 
+--------------------------------------------------------*/
+
+.header_content_noosphere {
+	text-align: center;
+	margin-left: 8%;
+}
+
 /*= MAIN
 --------------------------------------------------------*/
 
@@ -147,11 +159,7 @@ a {
 	
 	min-height: 750px;
  			
-/* 	background: url("../assets/brain_bg.png") no-repeat; */
-/*   	background-position: calc(50% + 0px) 50%; */
- 			
 	padding: 50px 0px 0px 0px;
-/*  	border: 1px solid #0000ff; */
 }
 
 .default_bg {
@@ -166,7 +174,7 @@ a {
 
 .content_container {
 	width: 100%;
-	margin: 0px auto;
+	margin: 0px;
 	text-align: center;
 /* 	vertical-align: middle; */
 	
@@ -175,8 +183,8 @@ a {
 
 #splash_text{
 	display: inline-block;
-	margin: 200px auto auto 0px;
-	padding-top: 0px;
+	margin: 0px;
+	padding: 110px 0px;
 	float: none;
 }
 
@@ -186,11 +194,25 @@ a {
 	overflow: none;
 }
 
+.title_text {
+	text-shadow: 2px 2px 5px black;
+/* 	background: radial-gradient(rgba(0,0,0,1) 5%, rgba(0,0,0,0)) 95%; */
+	padding: 2px;
+}
+
+.title_text a {
+	text-transform: lowercase;
+}
+
+#welcome { margin-bottom: 85px; }
+#stimuli { margin-bottom: 85px; }
+#select { margin-bottom: -80px; }
+
 .button_text { padding: 10px; }
 
 #splash_buttons {  
 	max-width: 900px;
-	margin: 20px auto;
+	margin: 10px auto;
 	float: none;
 	cursor: pointer;
 }
@@ -231,6 +253,46 @@ a {
 	padding: 16px 18px 16px 18px;
 	
 	border: 1px solid #fff;
+}
+
+/* MAIN - NOOSPHERE
+--------------------------------------------------------*/
+
+.noosphere_bg {
+ 	background: url("../assets/circle_bg.png") no-repeat calc(50% + 0px) 50%;
+}
+
+.post_container {
+	display: inline-block;
+	text-align: left;
+}
+
+.post_title {
+	display: block;
+	margin-left: 0px;
+	padding: 30px 30px 40px 30px;
+	float: none;
+}
+
+.post_text {
+	display: block;
+	margin: 0px;
+	padding: 30px;
+	float: none;
+	
+	height: auto;
+	max-height: 400px;
+	width: auto;
+	max-width: 950px;
+	
+	text-align: left;
+	
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+.post_text img {
+	text-align: center;
+	float: none;
 }
 
 
@@ -329,7 +391,13 @@ a {
 	vertical-align: middle;
 	position: absolute;
 	
+	text-align: left;
+	
 /* 	border: 1px solid #000fff; */
+}
+
+#left_text h3, #right_text h3 {
+	text-align: center;
 }
 
 #left_text {
@@ -404,4 +472,5 @@ a {
 
 #footer #nav li a {
 	text-decoration: none;
+	text-transform: lowercase;
 }
