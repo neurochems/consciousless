@@ -1,0 +1,5 @@
+anywhere.jpg = Andrew Knapp
+campcult1.jpg = Cale Bradbury
+campcult2.jpg = Evan Bergstra
+static.png = Stacey Lalande
+subbies.jpg = Danielle Provencher
