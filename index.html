@@ -20,8 +20,19 @@
 		<meta name="author" content="Brendan Lehman" />
 		<!--SEO ENDS-->
 		
+		<!-- GOOGLE ANALYTICS -->
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-72269924-1', 'auto');
+		  ga('send', 'pageview');
+		</script>
+		
 		<!-- favicon -->
-		<link rel="icon" type="image/png" href="assets/dot.png">		
+		<link rel="icon" type="image/png" href="assets/dot.png">	
 </head>
 	
 <body>
@@ -98,8 +109,8 @@ var States = {
 	        
             States.exit_state(ssm);
             
-            $("#science_header").stop().slideToggle(100);
-            $("#science_text").stop().slideToggle(100);
+            $("#science_header").stop().slideToggle(200);
+            $("#science_text").stop().slideToggle(200);
                                   
         },
         main: function(ssm) {
@@ -144,8 +155,8 @@ var States = {
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#philosophy_header").stop().slideToggle(100);
-            $("#philosophy_text").stop().slideToggle(100);            
+            $("#philosophy_header").stop().slideToggle(200);
+            $("#philosophy_text").stop().slideToggle(200);            
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -189,8 +200,8 @@ var States = {
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#governance_header").stop().slideToggle(100);
-            $("#governance_text").stop().slideToggle(100);
+            $("#governance_header").stop().slideToggle(200);
+            $("#governance_text").stop().slideToggle(200);
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -234,8 +245,8 @@ var States = {
         },
         exit: function(ssm) {
             States.exit_state(ssm);
-            $("#politics_header").stop().slideToggle(100);
-            $("#politics_text").stop().slideToggle(100);
+            $("#politics_header").stop().slideToggle(200);
+            $("#politics_text").stop().slideToggle(200);
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -282,8 +293,8 @@ var States = {
         exit: function(ssm) {
             States.exit_state(ssm);
             
-            $("#games_header").stop().slideToggle(100);
-            $("#games_text").stop().slideToggle(100);
+            $("#games_header").stop().slideToggle(200);
+            $("#games_text").stop().slideToggle(200);
             
         },
         main: function(ssm) {
@@ -329,8 +340,8 @@ var States = {
         exit: function(ssm) {
             States.exit_state(ssm);
             
-            $("#music_header").stop().slideToggle(100);
-            $("#music_text").stop().slideToggle(100);
+            $("#music_header").stop().slideToggle(200);
+            $("#music_text").stop().slideToggle(200);
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -375,8 +386,8 @@ var States = {
         exit: function(ssm) {
             States.exit_state(ssm);
             
-            $("#code_header").stop().slideToggle(100);
-            $("#code_text").stop().slideToggle(100);
+            $("#code_header").stop().slideToggle(200);
+            $("#code_text").stop().slideToggle(200);
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -421,8 +432,8 @@ var States = {
         exit: function(ssm) {
             States.exit_state(ssm);
             
-            $("#art_header").stop().slideToggle(100);
-            $("#art_text").stop().slideToggle(100);
+            $("#art_header").stop().slideToggle(200);
+            $("#art_text").stop().slideToggle(200);
         },
         main: function(ssm) {
             ssm.change_state("main");
@@ -481,7 +492,7 @@ function SimpleStateMachine() {
         
         $("#left_button").on('mouseover touchstart', function(){
 			//toggle list
-			$("#left_lower").stop().slideToggle(100); 				
+			$("#left_lower").stop().slideToggle(200); 				
 				
 			//background highlight
 			if($("#main").hasClass('default_bg')) { 
@@ -502,12 +513,12 @@ function SimpleStateMachine() {
 			$(this).data('clicked', true)
 			
 			//slide up text
-			$(".title_text").stop().slideToggle(100);
-			$(".button_column").stop().slideToggle(100);
+			$(".title_text").stop().slideToggle(200);
+			$(".button_column").stop().slideToggle(200);
 			
 			//show dots and text
-			$("#left_dots").stop().slideToggle(100);
-			$("#left_text").stop().slideToggle(100);
+			$("#left_dots").stop().slideToggle(200);
+			$("#left_text").stop().slideToggle(200);
 	
 			// ANIMATING BACKGROUND POSITION
 			$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
@@ -527,7 +538,7 @@ function SimpleStateMachine() {
         
         $("#right_button").on('mouseover touchstart', function(){
 			//toggle list
-			$("#right_lower").stop().slideToggle(100);
+			$("#right_lower").stop().slideToggle(200);
 			
 			//background highlight
 			if($("#main").hasClass('default_bg')) { 
@@ -548,12 +559,12 @@ function SimpleStateMachine() {
 			$(this).data('clicked', true)
 			
 			//slide up text
-			$(".title_text").stop().slideToggle(100);
-			$(".button_column").stop().slideToggle(100);
+			$(".title_text").stop().slideToggle(200);
+			$(".button_column").stop().slideToggle(200);
 			
 			// show dots and text
-			$("#right_dots").stop().slideToggle(100);
-			$("#right_text").stop().slideToggle(100);
+			$("#right_dots").stop().slideToggle(200);
+			$("#right_text").stop().slideToggle(200);
 	
 			// ANIMATING BACKGROUND POSITION
 			$({temporary_x: 0, temporary_y: 50}).animate({temporary_x: -350, temporary_y: 50}, {
@@ -594,12 +605,12 @@ function SimpleStateMachine() {
 			if($("#main").hasClass('default_bg')) { 
 				
 				//slide up text
-				$(".title_text").stop().slideToggle(100);
-				$(".button_column").stop().slideToggle(100);
+				$(".title_text").stop().slideToggle(200);
+				$(".button_column").stop().slideToggle(200);
 				
 				//show dots and text
-				$("#left_dots").stop().slideToggle(100);
-				$("#left_text").stop().slideToggle(100);		 
+				$("#left_dots").stop().slideToggle(200);
+				$("#left_text").stop().slideToggle(200);		 
 				
 				// ANIMATING BACKGROUND POSITION
 				$({bg_x: 0, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
@@ -619,13 +630,13 @@ function SimpleStateMachine() {
 			else if ($("#main").hasClass('right_bg')) {
 
 				//hide dots and text
-				$("#right_text").stop().slideToggle(100);
-	            $("#right_lines").stop().slideToggle(100);
-	            $("#right_dots").stop().slideToggle(100);
+				$("#right_text").stop().slideToggle(200);
+	            $("#right_lines").stop().slideToggle(200);
+	            $("#right_dots").stop().slideToggle(200);
 	            
 	            //show dots and text
-	            $("#left_dots").stop().slideToggle(100);
-	            $("#left_text").stop().slideToggle(100);
+	            $("#left_dots").stop().slideToggle(200);
+	            $("#left_text").stop().slideToggle(200);
 				            				
 				// ANIMATING BACKGROUND POSITION
 				$({bg_x: -350, bg_y: 50}).animate({bg_x: 350, bg_y: 50}, {
@@ -662,12 +673,12 @@ function SimpleStateMachine() {
 			if($("#main").hasClass('default_bg')) { 
 				
 				//slide up text
-				$(".title_text").stop().slideToggle(100);
-				$(".button_column").stop().slideToggle(100);
+				$(".title_text").stop().slideToggle(200);
+				$(".button_column").stop().slideToggle(200);
 				
 				//show dots and text
-				$("#right_dots").stop().slideToggle(100);
-				$("#right_text").stop().slideToggle(100);
+				$("#right_dots").stop().slideToggle(200);
+				$("#right_text").stop().slideToggle(200);
 				
 				//background highlight
 				$("#main").addClass('right_bg').removeClass('default_bg'); 
@@ -686,13 +697,13 @@ function SimpleStateMachine() {
 			else if ($("#main").hasClass('left_bg')) {
 				
 				//hide dots and text
-				$("#left_text").stop().slideToggle(100);
-	            $("#left_lines").stop().slideToggle(100);
-	            $("#left_dots").stop().slideToggle(100);
+				$("#left_text").stop().slideToggle(200);
+	            $("#left_lines").stop().slideToggle(200);
+	            $("#left_dots").stop().slideToggle(200);
 	            
 	            //show dots and text
-				$("#right_dots").stop().slideToggle(100);
-				$("#right_text").stop().slideToggle(100);
+				$("#right_dots").stop().slideToggle(200);
+				$("#right_text").stop().slideToggle(200);
 	            
 	            //background highlight
 				$("#main").addClass('right_bg').removeClass('left_bg');
@@ -816,8 +827,8 @@ function restoreMainL() {
 	
 	$("#left_button").data('clicked', false)
 		
-	$(".title_text").stop().slideToggle(100);
-	$(".button_column").stop().slideToggle(100);
+	$(".title_text").stop().slideToggle(200);
+	$(".button_column").stop().slideToggle(200);
 	
 }
 
@@ -838,16 +849,16 @@ function restoreMainR() {
 	
 	$("#right_button").data('clicked', false)
 		
-	$(".title_text").stop().slideToggle(100);
-	$(".button_column").stop().slideToggle(100);
+	$(".title_text").stop().slideToggle(200);
+	$(".button_column").stop().slideToggle(200);
 	
 }
 
 // left restore
 function restoreScience() {
 	// restore header and text
-	$("#science_header").stop().slideToggle(100);
-    $("#science_text").stop().slideToggle(100);
+	$("#science_header").stop().slideToggle(200);
+    $("#science_text").stop().slideToggle(200);
     // animate line  
     animateSVG();
 }
@@ -855,8 +866,8 @@ function restoreScience() {
 function restorePhilosophy() {
 	
 	// restore header and text
-	$("#philosophy_header").stop().slideToggle(100);
-    $("#philosophy_text").stop().slideToggle(100);
+	$("#philosophy_header").stop().slideToggle(200);
+    $("#philosophy_text").stop().slideToggle(200);
     // animate line  
     animateSVG(); 
 
@@ -865,8 +876,8 @@ function restorePhilosophy() {
 function restoreGovernance() {
 	
 	// restore header and text
-	$("#governance_header").stop().slideToggle(100);
-    $("#governance_text").stop().slideToggle(100);
+	$("#governance_header").stop().slideToggle(200);
+    $("#governance_text").stop().slideToggle(200);
     // animate line 
     animateSVG(); 
 
@@ -875,8 +886,8 @@ function restoreGovernance() {
 function restorePolitics() {
 	
 	// restore header and text
-	$("#politics_header").stop().slideToggle(100);
-    $("#politics_text").stop().slideToggle(100);
+	$("#politics_header").stop().slideToggle(200);
+    $("#politics_text").stop().slideToggle(200);
     // animate line 
     animateSVG(); 
 
@@ -885,32 +896,32 @@ function restorePolitics() {
 // right restore
 function restoreGames() {
 	// restore header and text
-	$("#games_header").stop().slideToggle(100);
-    $("#games_text").stop().slideToggle(100);
+	$("#games_header").stop().slideToggle(200);
+    $("#games_text").stop().slideToggle(200);
     // animate line
     animateSVG(); 
 }
 
 function restoreMusic() {
 	// restore header and text
-	$("#music_header").stop().slideToggle(100);
-    $("#music_text").stop().slideToggle(100);
+	$("#music_header").stop().slideToggle(200);
+    $("#music_text").stop().slideToggle(200);
     // animate line 
     animateSVG(); 
 }
 
 function restoreCode() {
 	// restore header and text
-	$("#code_header").stop().slideToggle(100);
-    $("#code_text").stop().slideToggle(100);
+	$("#code_header").stop().slideToggle(200);
+    $("#code_text").stop().slideToggle(200);
     // animate line
     animateSVG(); 
 }
 
 function restoreArt() {
 	// restore header and text
-	$("#art_header").stop().slideToggle(100);
-    $("#art_text").stop().slideToggle(100);
+	$("#art_header").stop().slideToggle(200);
+    $("#art_text").stop().slideToggle(200);
     // animate line  
     animateSVG(); 
 }
