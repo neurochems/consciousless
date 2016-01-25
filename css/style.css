@@ -148,7 +148,7 @@ a {
 	text-transform: lowercase;
 }
 
-/*= NAVIGATION - 
+/*= NAVIGATION - NOOSPHERE
 --------------------------------------------------------*/
 
 .header_content_noosphere {
@@ -190,8 +190,8 @@ a {
 
 #splash_text{
 	display: inline-block;
-	margin: 0px;
-	padding: 110px 0px;
+	margin: 5% 0px;
+	padding: 0px;
 	float: none;
 }
 
@@ -211,9 +211,9 @@ a {
 	text-transform: lowercase;
 }
 
-#welcome { margin-bottom: 85px; }
-#stimuli { margin-bottom: 85px; }
-#select { margin-bottom: -80px; }
+#welcome { margin-bottom: 10%; }
+#stimuli { margin-bottom: 10%; }
+#select { margin-bottom: -18%; }
 
 .button_text { padding: 10px; }
 
