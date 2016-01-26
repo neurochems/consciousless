@@ -181,45 +181,49 @@ a {
 
 .content_container {
 	width: 100%;
-	margin: 0px;
+	margin-top: 0px;
 	text-align: center;
 /* 	vertical-align: middle; */
 	
 /* 	border: 1px solid #FF00ff; */
 }
 
-#splash_text{
+
+/* landing page
+-----------------*/
+
+#splash_text {
 	display: inline-block;
-	margin: 5% 0px;
+	height: 75%;
+	margin: 120px 0px;
 	padding: 0px;
-	float: none;
 }
 
 .title_text, .button_text {
-	height: auto;
 	border: none;
-	overflow: none;
+	overflow: hidden;
 }
 
 .title_text {
+	height: 40%;
+	
 	text-shadow: 2px 2px 5px black;
-/* 	background: radial-gradient(rgba(0,0,0,1) 5%, rgba(0,0,0,0)) 95%; */
-	padding: 2px;
+	padding: 0px;
 }
 
 .title_text a {
 	text-transform: lowercase;
 }
 
-#welcome { margin-bottom: 10%; }
-#stimuli { margin-bottom: 10%; }
-#select { margin-bottom: -18%; }
+#welcome { margin-bottom: -180px; }
+#stimuli { margin-bottom: -180px; }
+#select { margin-bottom: -180px; }
 
 .button_text { padding: 10px; }
 
-#splash_buttons {  
+#splash_buttons { 
 	max-width: 900px;
-	margin: 10px auto;
+	margin: -560px auto;
 	float: none;
 	cursor: pointer;
 }
