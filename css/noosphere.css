@@ -59,10 +59,11 @@ p {
 	font-size: 18px;
 /* 	font-weight: bold; */
 	padding: 20px;
+	
 	height: 375px;
 	overflow: auto;
 	
-	
+	border: 1px solid #fff;
 }
 
 a {
@@ -271,17 +272,16 @@ a {
 	padding: 30px;
 	float: none;
 	overflow-y: scroll;
-	height: auto;
-	max-height: 450px;
+	height: 450px;
 	width: auto;
 	max-width: 950px;
 	
-	border: 1px solid #fff;
+	text-align: left;
 	
 /* 	background-color: rgba(0, 0, 0, 0.8); */
 }
 
-img {
+.post_text img {
 	text-align: center;
 }
 
