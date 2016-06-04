@@ -3,7 +3,7 @@
 	<head profile="http://www.w3.org/2005/10/profile">
 		<meta http-equiv="Content-Type" content="text/html"; charset="UTF-8" />
 		<title>consciousless.net</title>
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="css/noosphere.css"/>
 		<link type="text/css" rel="stylesheet" charset="utf-8" href="css/webfonts/webfonts.css"/>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		
@@ -77,6 +77,18 @@
 			$("#nav_noosphere").text("cerebrum");
 		});
 	
+		// desktop sidebar
+		    $("#nav_3").click(function (){ $('html, body').animate({ scrollLeft: ($("#callforgames").offset().left) - (400 + ($(window).width() / 20)) }, 400); });
+		    $("#nav_2").click(function (){ $('html, body').animate({ scrollLeft: ($("#thesiscompleted").offset().left) - (125 + ($(window).width() / 20)) }, 400); });
+		    $("#nav_1").click(function (){ $('html, body').animate({ scrollLeft: ($("#websitelaunched").offset().left) - (125 + ($(window).width() / 20)) }, 400); });
+		    
+		    
+	    // mobile sidebar
+	    $("#nav_3_mobile").click(function (){ $('html, body').animate({ scrollTop: ($("#callforgames").offset().top) - 110 }, 400); });
+	    $("#nav_2_mobile").click(function (){ $('html, body').animate({ scrollTop: ($("#thesiscompleted").offset().top) - 110 }, 400); });
+	    $("#nav_1_mobile").click(function (){ $('html, body').animate({ scrollTop: ($("#websitelaunched").offset().top) - 110 }, 400); });
+	
+	
 	});
 </script>
 
@@ -91,7 +103,7 @@
 		<nav id="nav">
 			<ul>
 				<li><div id="nav_left">noosphere</div></li>
-				<li><div id="nav_right">akashic record</div></li>
+<!-- 				<li><div id="nav_right">akashic record</div></li> -->
 				<li><a id="nav_noosphere" href="index.html">cerebrum</a></li>
 			</ul>
 		</nav>
@@ -101,12 +113,74 @@
 <!-- NAV BAR END -->
 
 <!-- CONTENT START -->
-
+<!-- SIDEBAR START -->
+		<header id="sidebar">
+			<nav id="nav">
+				<ul class="desktop_nav">
+					<li id="nav_title" class="nav_item_desktop"><a href="noosphere.html">akashic record</a></li>
+					<li id="nav_3" class="nav_item_desktop">Call For Games</li>
+					<li id="nav_3" class="nav_sub_desktop">03/06/16</li>
+					<li id="nav_2" class="nav_item_desktop">Thesis Completed</li>
+					<li id="nav_2" class="nav_sub_desktop">29/04/16</li>
+					<li id="nav_1" class="nav_item_desktop">Website Launched</li>
+					<li id="nav_1" class="nav_sub_desktop">01/12/16</li>
+				</ul>
+<!--
+				<ul class="mobile_nav">
+					<li id="nav_title_mobile" class="nav_item__mobile"><a href="noosphere.html">akashic record</a></li>
+					<li id="nav_3_mobile" class="nav_item__mobile">Call For Games</li>
+					<li id="nav_3_mobile" class="nav_sub_mobile">03/06/16</li>
+					<li id="nav_2_mobile" class="nav_item_mobile">Thesis Completed</li>
+					<li id="nav_2_mobile" class="nav_sub_mobile">29/04/16</li>
+					<li id="nav_1_mobile" class="nav_item_mobile">Website Launched</li>
+					<li id="nav_1_mobile" class="nav_sub_mobile">01/12/16</li>
+				</ul>
+-->
+			</nav>
+		</header>
+		<!-- SIDEBAR END -->
 <div id="main" class="noosphere_bg">
 	<div class="content_container">
-		<div class="post_container">
+		<div id="callforgames" class="post_container">
 			<h3 class="post_title">
-				Website Launched!
+				Up Here Arcade 2016
+			</h3>
+			<p class="post_text">
+				Call for Games!<br/>
+				<br/>
+				Sudbury (and everywhere else) gamedevs!<br/>
+				<br/>
+				We're hosting an arcade at Up Here 2016 (Aug 11-14) and we want your interactive weird stuff. All local submissions will be accepted, from janky experiments on up.
+Confirm your participation by June 30th!
+Please share around, submit, and help us build independent game culture in Northern Ontario.
+Thanks to Sudbury Game Design Challenge (Mike), Laurentian Math and Computer Science / Mathématiques à Laurentienne Game Design Program (Aaron), and Up Here (everyone) for the support!<br/>	
+				<br/>
+				<a href="mailto:brendan@consciousless.net" target="_newtab">Let me know</a> if you'd like to get involved!<br/>
+				<br/>
+				<img src="assets/images/callforgames.gif" height="825" width="825"/>
+			</p>
+		</div>
+		
+		<div id="thesiscompleted" class="post_container">
+			<h3 class="post_title">
+				Thesis Completed
+			</h3>
+			<p class="post_text">
+				The masters degree is finally done!<br/>
+				<br/>
+				It took 5 long years, but the document is complete and the defence was successful. Here's to the next chapter.<br/>
+				<br/>
+				Read the document <a href="assets/documents/Lehman_MSc_Final1may2016.pdf">here</a>.<br/>
+				<br/>
+				Review the defence presentation <a href="https://drive.google.com/open?id=1M7wuin8ah7B7Rh05lvwSB1-FcvgXvLzyKqbVmH_NGVg">here</a>.<br/>
+				<br/>
+				<img src="assets/images/defence.jpg"/>
+			</p>
+		</div>
+		
+		<div id="websitelaunched" class="post_container">
+			<h3 class="post_title">
+				Website Launched
 			</h3>
 			<p class="post_text">
 				It's here! I have finally become a brand.<br/>
@@ -124,9 +198,9 @@
 				<a href="mailto:brendan@consciousless.net" target="_newtab">Let me know</a> if you find any bugs or you have any suggestions.<br/>
 				<br/>
 				See you soon!
-				<!-- <img src="assets/brain.png"> -->
 			</p>
 		</div>
+
 	</div>
 </div>
 
@@ -146,7 +220,7 @@
 				<li><a href="https://www.researchgate.net/profile/Brendan_Lehman" target="_newtab" title="brendan lehman">researchgate</a></li>
 				<li><a href="http://braintape.bandcamp.com" target="_newtab" title="brain tape">bandcamp</a></li>
 				<li><a href="https://github.com/neurochems" target="_newtab" title="neurochems">github</a></li>
-				<li><a href="https://www.instagram.com/clarksfortress/" target="_newtab" title="clarksfortress">instagram</a></li>
+				<li><a href="https://www.instagram.com/neurochems/" target="_newtab" title="clarksfortress">instagram</a></li>
 			</ul>
 		</nav>
 	</div>

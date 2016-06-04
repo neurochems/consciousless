@@ -1,0 +1,333 @@
+/*
+Project: consciousless.net
+Description: the personal site of brendan lehman
+Code + Design: Brendan Lehman
+*/
+
+
+/*= GENERAL STYLING
+--------------------------------------------------------*/
+
+* {padding: 0px; margin: 0px;}
+
+html, body {
+    height: 100%;
+	background-attachment: fixed;
+	background-color: #000;
+/* 	overflow: hidden; */
+}
+
+body {
+    font-family: "Letter Gothic Std", sans-serif;
+	color: #fff;
+	overflow-y: hidden;
+}
+
+h1 {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 25px;
+	letter-spacing: 8px;
+}
+
+h2 {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 14px;
+	letter-spacing: 4px;
+}
+
+h3 {
+	font-family: "Letter Gothic Bold", serif;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: bolder;
+	font-size: 26px;
+	letter-spacing: 4px;
+	padding: 10px 10px 20px 10px;
+	
+}
+
+ul { list-style-type: none; }
+
+p {
+	font-family: "Letter Gothic Std", serif;
+	color: #fff;
+	font-size: 18px;
+/* 	font-weight: bold; */
+	padding: 20px;
+	height: 375px;
+	overflow: auto;
+	
+	
+}
+
+a {
+	font-family: "Letter Gothic Std", serif;
+	color: #fff;
+ 	letter-spacing: 2px;
+ 	text-decoration: underline;
+}
+
+
+/*= NAVIGATION
+--------------------------------------------------------*/
+
+#header {
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+	border-bottom: 1px solid #fff;
+	position: fixed;
+}
+
+.header_content {
+	text-align: center;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#name, #nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	margin: 10px auto;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#name {
+	padding-right: 20px;
+	border-right: 1px solid #fff;
+	text-align: justify;
+	cursor: pointer;
+}
+
+/*
+#first {
+	font-size: 20px;
+	letter-spacing: 10px;
+}
+*/
+
+#last {
+	letter-spacing: 12.5px;
+	padding-left: 5.5px;
+}
+
+#nav { 
+	float: none;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+#nav ul {
+	list-style: none;
+	display: block;
+	margin: 0px auto 0px 0px;
+	padding: 0px auto 0px 0px;
+}
+
+#nav li {
+	display: inline;
+	margin: 0px 35px 0px 5px;
+	float: left;
+	padding-left: 1px;
+	cursor: pointer;
+}
+
+#header a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+/*= NAVIGATION - NOOSPHERE
+--------------------------------------------------------*/
+
+.header_content_noosphere {
+	text-align: center;
+}
+
+/* sidebar
+-----------------*/
+
+#sidebar {
+	width: 200px; 
+	height: calc(100% - 202px);
+	background-color: #000;
+	position: fixed;
+	z-index: 1;
+	float: left;
+	text-align: center;
+	
+	display: inline-block;
+	
+	top: 82px;
+	padding: 33px 0px 0px 0px;
+	
+/* 	border: 1px solid red; */
+
+}
+
+#nav #nav_title {
+	text-align: center;
+	
+	padding: 0px 0px 40px 0px;
+	
+	border-bottom: 1px solid red;
+}
+
+#nav .nav_item_desktop, #nav .nav_item_mobile {
+	color: #fff;
+	font-size: 15px;
+	cursor: pointer;
+	text-align: left;
+	padding: 20px 0px 0px 5px;
+	
+}
+
+#nav .nav_sub_desktop, #nav .nav_sub_mobile {
+	font-size: 10px;
+	cursor: pointer;
+	float: right;
+	padding: 0px 20px 0px 0px;
+	margin: 0px;
+	
+}
+
+.nav_item_desktop a, .nav_item_mobile a {
+	text-decoration: none; 	
+}
+
+.desktop_nav, .mobile_nav {
+	padding-bottom: 20px;
+}
+
+.mobile_nav {
+	display: none;
+}
+
+
+/*= MAIN
+--------------------------------------------------------*/
+
+#main {
+	width: 6155px;
+	height: 100%;
+/* 	position: relative; */
+	z-index: -1;
+	display: inline-block;
+	float: none;
+ 			
+ 	margin: 0px 0px 0px 200px;		
+	padding: 80px 0px 0px 0px;
+}
+
+.noosphere_bg {
+ 	background: url("../assets/circle_bg.png") no-repeat fixed calc(50% + 100px) center;
+/*  	background-attachment: fixed; */
+}
+
+/* SLIDE CONTENT
+--------------------------------------------------------*/
+
+/* text & image containers */
+
+.content_container {
+	width: 6155px;
+	height: auto;
+/* 	min-height: auto; */
+	
+	margin: 50px 0px;
+	
+/*  	border: 1px solid #FF00ff; */
+}
+
+.post_container {
+	width: 900px;
+	height: auto;
+	max-height: 900px;
+	display: inline-block;
+	
+	vertical-align: top;
+	
+	padding: 0px 40px 0px 40px;
+}
+
+.post_title {
+	display: block;
+	text-align: left;
+	padding: 0px 0px 40px 30px;
+	float: none;
+}
+
+.post_text {
+	display: block;
+	margin: 0px;
+	padding: 30px;
+	float: none;
+	overflow-y: scroll;
+	height: auto;
+	max-height: 450px;
+	width: auto;
+	max-width: 950px;
+	
+	border: 1px solid #fff;
+	
+/* 	background-color: rgba(0, 0, 0, 0.8); */
+}
+
+img {
+	text-align: center;
+}
+
+/* FOOTER
+--------------------------------------------------------*/
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+/* 	margin-left: 100px; */
+	border-top: 1px solid #fff;
+ 	z-index: 0;
+}
+
+.footer_content {
+	text-align: center;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#footer_title, #footer_nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	
+	margin: 10px auto;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#footer_title {
+	padding: 5px 20px 0px 0px;
+	border-right: 1px solid #fff;
+	text-align: right; 
+}
+
+#footer #nav li {
+	font-size: 11px;
+	margin: 5px 13px 0px 5px;
+}
+
+#footer #nav li a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
