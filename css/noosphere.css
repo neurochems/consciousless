@@ -20,7 +20,7 @@ html, body {
 body {
     font-family: "Letter Gothic Std", sans-serif;
 	color: #fff;
-	overflow-y: hidden;
+	overflow-y: visible;
 }
 
 h1 {
@@ -73,6 +73,15 @@ a {
  	text-decoration: underline;
 }
 
+/*= SITE
+--------------------------------------------------------*/
+
+#site {
+	margin: 0px auto;
+	padding: 0px;
+	max-width: 90%;
+	height: 100%;
+}
 
 /*= NAVIGATION
 --------------------------------------------------------*/
@@ -83,11 +92,12 @@ a {
 	background-color: #000;
 	border-bottom: 1px solid #fff;
 	position: fixed;
+	z-index: 1;
 }
 
 .header_content {
 	text-align: center;
-	
+	width: 100%;
 /* 	border: 1px solid #0000ff; */
 }
 
@@ -158,7 +168,7 @@ a {
 
 #sidebar {
 	width: 200px; 
-	height: calc(100% - 202px);
+	height: calc(100% - 190px);
 	background-color: #000;
 	position: fixed;
 	z-index: 1;
@@ -167,8 +177,10 @@ a {
 	
 	display: inline-block;
 	
-	top: 82px;
-	padding: 33px 0px 0px 0px;
+	left: 0%;
+	
+	top: 100px;
+	padding: 15px 0px 0px 0px;
 	
 /* 	border: 1px solid red; */
 
@@ -217,19 +229,21 @@ a {
 --------------------------------------------------------*/
 
 #main {
-	width: 6155px;
-	height: 100%;
-/* 	position: relative; */
-	z-index: -1;
+	width: auto;
+	height: auto;
+	position: relative;
+	z-index: 0;
 	display: inline-block;
 	float: none;
  			
- 	margin: 0px 0px 0px 200px;		
-	padding: 80px 0px 0px 0px;
+	margin: 90px 0px 50px 200px;		
+	padding: 0px 0px 0px 0px;
+
+	left: -5%;
 }
 
 .noosphere_bg {
- 	background: url("../assets/circle_bg.png") no-repeat fixed calc(50% + 100px) center;
+ 	background: url("../assets/circle_bg.png") no-repeat fixed center;
 /*  	background-attachment: fixed; */
 }
 
@@ -239,44 +253,40 @@ a {
 /* text & image containers */
 
 .content_container {
-	width: 6155px;
-	height: auto;
-/* 	min-height: auto; */
-	
-	margin: 50px 0px;
-	
+	width: 2000px;
+	margin-bottom: 100px;
 /*  	border: 1px solid #FF00ff; */
 }
 
-.post_container {
-	width: 900px;
+.horiz_box {
+	width: auto;
 	height: auto;
-	max-height: 900px;
 	display: inline-block;
-	
 	vertical-align: top;
-	
+	margin: 40px 0px 0px 0px;
+}
+
+.post_container {
+	display: inline-block;
+	text-align: left;
+	height: auto;
 	padding: 0px 40px 0px 40px;
 }
 
 .post_title {
 	display: block;
-	text-align: left;
 	padding: 0px 0px 40px 30px;
 	float: none;
 }
 
 .post_text {
+	height: 475px;
+	width: 830px;
 	display: block;
 	margin: 0px;
 	padding: 30px;
 	float: none;
 	overflow-y: scroll;
-	height: 450px;
-	width: auto;
-	max-width: 950px;
-	
-	text-align: left;
 	
 /* 	background-color: rgba(0, 0, 0, 0.8); */
 }
@@ -296,7 +306,9 @@ a {
 	background-color: #000;
 /* 	margin-left: 100px; */
 	border-top: 1px solid #fff;
- 	z-index: 0;
+	z-index: 2;
+ 	
+	left: 0%;
 }
 
 .footer_content {
@@ -330,4 +342,20 @@ a {
 #footer #nav li a {
 	text-decoration: none;
 	text-transform: lowercase;
+}
+
+
+@media screen and (max-width: 800px) {
+
+body {
+	overflow-y: scroll;
+}
+	
+.post_text {
+	height: auto;
+}
+	
+	
+	
+	
 }

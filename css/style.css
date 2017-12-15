@@ -83,6 +83,7 @@ a {
 	margin-top: 0px;
 	border-bottom: 1px solid #fff;
 	position: fixed;
+	z-index: 1;
 }
 
 .header_content {
@@ -147,21 +148,19 @@ a {
 	text-transform: lowercase;
 }
 
-/*= NAVIGATION - NOOSPHERE
---------------------------------------------------------*/
-
-.header_content_noosphere {
-	text-align: center;
-	margin-left: 8%;
-}
-
 /*= MAIN
 --------------------------------------------------------*/
+
+#mobile {
+	display: none;
+}
 
 #main {
 	width: 100%;
 	height: 100%;
 	text-align: center;
+	
+	display: block;
 	
 	min-height: 750px;
  			
@@ -264,47 +263,6 @@ a {
 	
 	border: 1px solid #fff;
 }
-
-/* MAIN - NOOSPHERE
---------------------------------------------------------*/
-
-.noosphere_bg {
- 	background: url("../assets/circle_bg.png") no-repeat calc(50% + 0px) 50%;
-}
-
-.post_container {
-	display: inline-block;
-	text-align: left;
-}
-
-.post_title {
-	display: block;
-	margin-left: 0px;
-	padding: 30px 30px 40px 30px;
-	float: none;
-}
-
-.post_text {
-	display: block;
-	margin: 0px;
-	padding: 30px;
-	float: none;
-	
-	height: auto;
-	max-height: 400px;
-	width: auto;
-	max-width: 950px;
-	
-	text-align: left;
-	
-	background-color: rgba(0, 0, 0, 0.8);
-}
-
-.post_text img {
-	text-align: center;
-	float: none;
-}
-
 
 /* SLIDE CONTENT
 --------------------------------------------------------*/
@@ -478,4 +436,377 @@ a {
 #footer #nav li a {
 	text-decoration: none;
 	text-transform: lowercase;
+}
+
+
+@media screen and (max-width: 1000px) {
+
+html, body {
+	overflow: visible;
+}
+
+#main {
+	display: none;
+}
+#header {
+	display: none;
+}
+
+#mobile {
+	display: block;
+}
+
+/*= NAVIGATION
+--------------------------------------------------------*/
+
+#mobile_header {
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+	margin-top: 0px;
+	border-bottom: 1px solid #fff;
+	position: fixed;
+	z-index: 1;
+	
+/* 	background-color: rgba(0, 0, 0, 1); */
+}
+
+.mobile_header_content {
+	text-align: center;
+	margin-left: 0px; 
+	background-color: rgba(0, 0, 0, 1);
+/* 	border: 1px solid #0000ff; */
+}
+
+#mobile_name, #mobile_nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	
+	margin: 10px 0px 10px 0px;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#mobile_name {
+	padding-right: 0px;
+/* 	border-right: 1px solid #fff; */
+	text-align: justify;
+	cursor: pointer;
+}
+
+/*
+#mobile_first {
+	font-size: 20px;
+	letter-spacing: 10px;
+}
+*/
+
+#mobile_last {
+	letter-spacing: 12.5px;
+	padding-left: 5.5px;
+}
+
+#mobile_nav { 
+	float: none;
+	margin-top: 10px;
+	padding-left: 10px;
+}
+
+#mobile_nav ul {
+	list-style: none;
+	display: block;
+	margin: 0px auto 0px 0px;
+	padding: 0px auto 0px 0px;
+}
+
+#mobile_nav li {
+	display: inline;
+	margin: 0px 35px 0px 5px;
+	float: left;
+	padding-left: 1px;
+	cursor: pointer;
+}
+
+#mobile_header a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+#mobile_nav_left, #mobile_nav_right {
+	display: none;
+}
+
+/*= MAIN
+--------------------------------------------------------*/
+
+#mobile {
+	width: 100%;
+	height: auto;
+	text-align: center;
+	
+	min-height: 750px;
+ 			
+	padding: 50px 0px 0px 0px;
+}
+
+.mobile_bg:before {
+	left: 0px;
+	background-size: cover;
+	z-index: 0;
+	content: " ";
+	position: fixed;
+	background: url("../assets/brain_bg.png") no-repeat fixed 50%;
+	will-change: transform;
+	width: 100%;
+	height: 100%;
+}
+
+.mobile_content_container {
+	width: 100%;
+	height: 100%;
+	margin: 50px auto;
+	text-align: center;
+	vertical-align: middle;
+	min-height: 750px;
+	
+/* 	border: 1px solid #FF00ff; */
+}
+
+/* landing page
+-----------------*/
+
+#mobile_splash {
+	width: 100%;
+	height: auto;
+	display: block;
+	position: relative;
+	float: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#mobile_splash_text {
+	height: auto;
+	margin: 120px 0px 0px 0px;
+	padding: 0px;
+}
+
+.mobile_title_text, .mobile_button_text {
+	border: none;
+	overflow: hidden;
+}
+
+.mobile_title_text {
+	height: 75px;
+	
+	text-shadow: 2px 2px 5px black;
+	padding: 0px;
+}
+
+.mobile_title_text a {
+	text-transform: lowercase;
+}
+
+/*
+#mobile_welcome { margin-bottom: -180px; }
+#mobile_stimuli { margin-bottom: -180px; }
+#mobile_select { margin-bottom: -180px; }
+*/
+
+.mobile_button_text { padding: 15px; }
+
+#mobile_splash_buttons { 
+	height: auto;
+	margin: 0px 0px 120px 0px;
+	float: none;
+	cursor: pointer;
+}
+
+.mobile_button_column { 
+	height: auto;
+	vertical-align: top;
+	display: inline-block;
+	padding: 0px;
+	margin: 0px 10px 0px 10px;
+	float: none;
+	
+}
+
+#mobile_left_button, #mobile_right_button {
+	position: relative;
+	display: block;
+	width: 200px;
+	height: auto;
+	background-color: rgba(0, 0, 0, 0);
+	
+	padding: 15px;
+	
+	color: #fff;
+	font-size: 16px;
+ 	letter-spacing: 4px;
+
+ 	border: 1px solid #fff;
+}
+
+#mobile_left_lower, #mobile_right_lower {
+ 	position: relative;
+	left: -16px;
+	top: 17px;
+ 	
+	width: 200px;
+	height: auto;
+	background-color: rgba(0, 0, 0, 0);
+	padding: 15px 15px 15px 15px;
+	
+	border: 1px solid #fff;
+}
+
+/* SLIDE CONTENT
+--------------------------------------------------------*/
+
+
+/* text box
+-----------------*/
+
+#mobile_left_text, #mobile_right_text {
+	
+	width: 90%;
+	max-width: 700px;
+	height: auto;
+	margin: 0px auto;
+	padding: 0px 0px;
+	vertical-align: middle;
+	position: relative;
+	
+	display: block;
+	
+	text-align: left;
+	
+	background-color: rgba(0, 0, 0, 0);
+	
+/* 	border: 1px solid #000fff; */
+}
+
+#mobile_left_text h3, #mobile_right_text h3 {
+	text-align: center;
+	margin: 40px 0px 30px 0px;
+	padding: 0px;
+}
+
+#mobile_right_text {
+	padding-bottom: 100px;
+}
+
+
+/* dot selectors
+-----------------*/
+
+.mobile_left_dots, .mobile_right_dots {
+	position: relative;
+	margin: 0px 0px 0px 0px;
+	
+/* 	border: 1px solid #fff000; */
+}
+
+.mobile_red_dot { 
+	border-radius: 50%;
+	width: 25px;
+	height: 25px;
+	background: red;
+	opacity: 85%;
+	position: absolute;
+	cursor: pointer;
+
+}
+
+#mobile_science_dot {
+	left: calc(50% + 190px);
+	top: calc(50% - 90px);
+}
+
+#mobile_philosophy_dot {
+	left: calc(50% + 273px);
+	top: calc(50% - 25px);
+}
+
+#mobile_governance_dot {
+	left: calc(50% + 300px);
+	top: calc(50% - 275px);
+}
+
+#mobile_politics_dot {
+	left: calc(50% + 285px);
+	top: calc(50% + 90px);
+}
+
+#mobile_games_dot {
+	left: calc(50% - 285px);
+	top: calc(50% - 35px);
+}
+
+#mobile_music_dot {
+	left: calc(50% - 220px);
+	top: calc(50% - 55px);
+}
+
+#mobile_code_dot {
+	left: calc(50% - 320px);
+	top: calc(50% - 270px);
+}
+
+#mobile_art_dot {
+	left: calc(50% - 310px);
+	top: calc(50% + 75px);
+}
+
+/* FOOTER
+--------------------------------------------------------*/
+
+#footer {
+	position: fixed;
+	bottom: 0px;
+	width: 100%; 
+	height: auto;
+	background-color: #000;
+	margin-top: 0px;
+	border-top: 1px solid #fff;
+ 	
+}
+
+.footer_content {
+	text-align: center;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#footer_title, #footer_nav {
+	display: inline-block;
+	text-align: center;
+	vertical-align: middle;
+	float: none;
+	
+	margin: 10px auto;
+	
+/* 	border: 1px solid #0000ff; */
+}
+
+#footer_title {
+	padding: 5px 20px 0px 0px;
+	border-right: 1px solid #fff;
+	text-align: right; 
+}
+
+#footer #nav li {
+	font-size: 11px;
+	margin: 5px 13px 0px 5px;
+}
+
+#footer #nav li a {
+	text-decoration: none;
+	text-transform: lowercase;
+}
+
+
 }
